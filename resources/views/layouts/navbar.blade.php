@@ -1,7 +1,7 @@
 <!--Start sidebar-wrapper-->
 <div id="sidebar-wrapper" data-simplebar="" data-simplebar-auto-hide="true">
     <div class="brand-logo">
-        <a href="index.html">
+        <a href="{{ route('home') }}">
             <img src="assets/images/logo-icon.png" class="logo-icon" alt="logo icon">
             <h5 class="logo-text">Dashboard</h5>
         </a>
@@ -9,14 +9,14 @@
     <ul class="sidebar-menu do-nicescrol">
         <li class="sidebar-header">MAIN NAVIGATION</li>
         <li>
-            <a href="index.html">
+            <a href="{{ route('home') }}">
                 <i class="zmdi zmdi-view-dashboard"></i> <span>Dashboard</span>
             </a>
         </li>
 
         <li>
-            <a href="icons.html">
-                <i class="zmdi zmdi-invert-colors"></i> <span>UI Icons</span>
+            <a href="{{ route('category.index') }}">
+                <i class="zmdi zmdi-invert-colors"></i> <span>Kategoriyalar</span>
             </a>
         </li>
     </ul>

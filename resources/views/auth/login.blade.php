@@ -54,8 +54,7 @@
                     <div class="form-group">
                         <label for="email" class="sr-only">Email</label>
                         <div class="position-relative has-icon-right">
-                            <input type="email" type="email" class="form-control"
-                                   name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
+                            <input type="email" type="email" class="form-control" name="email" placeholder="Email" value="{{ old('email') }}" required autocomplete="email" autofocus>
                             <div class="form-control-position">
                                 <i class="icon-user"></i>
                             </div>
@@ -64,9 +63,7 @@
                     <div class="form-group">
                         <label for="exampleInputPassword" class="sr-only">Password</label>
                         <div class="position-relative has-icon-right">
-                            <input id="password" type="password"
-                                   name="password"
-                                   class="form-control">
+                            <input id="password" type="password" name="password" placeholder="Password" class="form-control">
                             <div class="form-control-position">
                                 <i class="icon-lock"></i>
                             </div>
@@ -92,7 +89,7 @@
     <!--End Back To Top Button-->
 
     <!--start color switcher-->
-    <div class="right-sidebar">
+    <!-- <div class="right-sidebar">
         <div class="switcher-icon">
             <i class="zmdi zmdi-settings zmdi-hc-spin"></i>
         </div>
@@ -126,7 +123,7 @@
             </ul>
 
         </div>
-    </div>
+    </div> -->
     <!--end color switcher-->
 
 </div><!--wrapper-->
