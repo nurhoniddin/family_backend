@@ -7,16 +7,16 @@
         </a>
     </div>
     <ul class="sidebar-menu do-nicescrol">
-        <li class="sidebar-header">MAIN NAVIGATION</li>
+        <li class="sidebar-header"></li>
         <li>
             <a href="{{ route('home') }}">
-                <i class="zmdi zmdi-view-dashboard"></i> <span>Dashboard</span>
+                <i class="zmdi zmdi-view-dashboard"></i> <span class="text-uppercase">Dashboard</span>
             </a>
         </li>
 
         <li>
             <a href="{{ route('category.index') }}">
-                <i class="zmdi zmdi-invert-colors"></i> <span>Kategoriyalar</span>
+                <i class="fa fa-list"></i> <span class="text-uppercase">Kategoriyalar</span>
             </a>
         </li>
     </ul>
