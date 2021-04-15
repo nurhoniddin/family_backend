@@ -30,5 +30,6 @@ Route::delete('category/destroy/{id}', [App\Http\Controllers\CategoryController:
 Route::get('category/show/{id}', [App\Http\Controllers\CategoryController::class, 'show'])->name('category.show');
 
 
+
 Auth::routes();
 
