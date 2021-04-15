@@ -38,7 +38,7 @@
                                                     @csrf
                                                     @method('DELETE')
                                           <a href="{{ route('category.edit',$cat->id) }}"><i class="fa fa-edit"></i></a>
-                                          <a href=""><i class="fa fa-eye"></i></a>
+                                          <a href="{{ route('category.show',$cat->id)  }}"><i class="fa fa-eye"></i></a>
                                           <button  type="submit" class="bg-transparent"><i class="fa fa-trash text-white"></i></button>
                                           </form>
                                       </td>

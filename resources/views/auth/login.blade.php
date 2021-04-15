@@ -37,9 +37,9 @@
         <div class="card-body">
             <div class="card-content p-2">
                 <div class="text-center">
-                    <img src="{{ asset('assets/images/logo-icon.png') }}" alt="logo icon">
+                    <img src="{{ asset('assets/images/logo.png') }}" style="width:189px" alt="logo icon">
                 </div>
-                <div class="card-title text-uppercase text-center py-3">Napa Family</div>
+                <div class="card-title text-uppercase text-center py-3"></div>
                 @if ($errors->any())
                     <div class="alert alert-danger">
                         <ul>
@@ -73,11 +73,11 @@
                         <div class="form-group col-6">
                             <div class="icheck-material-white">
                                 <input type="checkbox" id="user-checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }} />
-                                <label for="user-checkbox">Remember me</label>
+                                <label for="user-checkbox">Eslab qolish</label>
                             </div>
                         </div>
                     </div>
-                    <button type="submit" class="btn btn-light btn-block">Login</button>
+                    <button type="submit" class="btn btn-light btn-block">Kirish</button>
                 </form>
             </div>
         </div>

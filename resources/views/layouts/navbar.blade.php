@@ -2,8 +2,7 @@
 <div id="sidebar-wrapper" data-simplebar="" data-simplebar-auto-hide="true">
     <div class="brand-logo">
         <a href="{{ route('home') }}">
-            <img src="assets/images/logo-icon.png" class="logo-icon" alt="logo icon">
-            <h5 class="logo-text">Dashboard</h5>
+            <img src="{{ asset('assets/images/logo.png') }}" style="width:189px" class="logo-icon" alt="logo icon">
         </a>
     </div>
     <ul class="sidebar-menu do-nicescrol">
@@ -47,20 +46,20 @@
                             <div class="media">
                                 <div class="avatar"><img class="align-self-start mr-3" src="https://via.placeholder.com/110x110" alt="user avatar"></div>
                                 <div class="media-body">
-                                    <h6 class="mt-2 user-title">Sarajhon Mccoy</h6>
-                                    <p class="user-subtitle">mccoy@example.com</p>
+                                    <h6 class="mt-2 user-title">{{ Auth::user()->name ?? null }}</h6>
+                                    <p class="user-subtitle">{{ Auth::user()->email ?? null }}</p>
                                 </div>
                             </div>
                         </a>
                     </li>
-                    <li class="dropdown-divider"></li>
-                    <li class="dropdown-item"><i class="icon-envelope mr-2"></i> Inbox</li>
-                    <li class="dropdown-divider"></li>
-                    <li class="dropdown-item"><i class="icon-wallet mr-2"></i> Account</li>
-                    <li class="dropdown-divider"></li>
-                    <li class="dropdown-item"><i class="icon-settings mr-2"></i> Setting</li>
-                    <li class="dropdown-divider"></li>
-                    <li class="dropdown-item"><i class="icon-power mr-2"></i> Logout</li>
+                    <li class="dropdown-item">
+                        <form action="{{ route('logout') }}" method="post">
+                            @csrf
+                            <button type="submit" class="btn btn-success bg-transparient">
+                                Logout
+                            </button>
+                        </form>
+                    </li>
                 </ul>
             </li>
         </ul>
