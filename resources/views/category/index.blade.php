@@ -28,18 +28,22 @@
                               </tr>
                               </thead>
                               <tbody>
+                              @foreach($cats as $cat)
                               <tr>
-                                  @foreach($cats as $cat)
                                       <th scope="row">{{ $cat->id }}</th>
                                       <td>{{ $cat->name_uz }}</td>
                                       <td>{{ $cat->parent_id }}</td>
                                       <td>
-                                          <a href=""><i class="fa fa-edit"></i></a>
+                                      <form action="{{ route('category.destroy',$cat->id) }}" method="post">
+                                                    @csrf
+                                                    @method('DELETE')
+                                          <a href="{{ route('category.edit',$cat->id) }}"><i class="fa fa-edit"></i></a>
                                           <a href=""><i class="fa fa-eye"></i></a>
                                           <button  type="submit" class="bg-transparent"><i class="fa fa-trash text-white"></i></button>
+                                          </form>
                                       </td>
-                                  @endforeach
                               </tr>
+                              @endforeach
                               </tbody>
                           </table>
                       </div>

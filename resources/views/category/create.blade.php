@@ -26,10 +26,8 @@
                                                     @csrf
                                                     <div class="input-group pb-3">
                                                         <select name="parent_id" class="custom-select text-uppercase" id="inputGroupSelect01">
-                                                            <option value="0" select>Kategoriyalar...</option>
-                                                            <option value="1">One</option>
-                                                            <option value="2">Two</option>
-                                                            <option value="3">Three</option>
+                                                            <!-- <option value="0" select>Kategoriyalar...</option> -->
+                                                            <?php echo $categories_dropdown; ?>
                                                         </select>
                                                     </div>
                                                     <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">

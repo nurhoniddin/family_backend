@@ -15,7 +15,23 @@ class CategoryController extends Controller
 
     public function create()
     {
-        return view('category.create');
+        //Categories drop down start
+    	$categories =Category::where(['parent_id'=>0])->get();
+    	$categories_dropdown = "<option value='0' selected>Kategoriyalar...</option>";
+    	foreach($categories as $cat){
+    		$categories_dropdown .= "<option value='".$cat->id."'>".$cat->name_uz."</option>";
+    		$sub_categories = Category::where(['parent_id'=>$cat->id])->get();
+    		foreach($sub_categories as $sub_cat){
+    			$categories_dropdown.= "<option value='".$sub_cat->id."'>&nbsp;--------&nbsp;".$sub_cat->name_uz."</option>";
+                $sub_cat = Category::where(['parent_id'=>$sub_cat->id])->get();
+                foreach($sub_cat as $sub_cat){
+                    $categories_dropdown.= "<option value='".$sub_cat->id."'>&nbsp;-------------------&nbsp;".$sub_cat->name_uz."</option>";
+                }
+    		}
+    	}
+        //Categories drop down ends 
+
+        return view('category.create',compact('categories_dropdown'));
     }
 
     /**
@@ -23,7 +39,6 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-//        dd($request);
         $request->validate([
             'name_uz' => 'required',
         ]);
@@ -34,5 +49,49 @@ class CategoryController extends Controller
        $data->save();
        return redirect()->route('category.index')
            ->with('success','Kategoriya Yaratildi');
+    }
+
+    public function edit($id)
+    {
+        $category= Category::find($id);
+
+        //Categories drop down start
+    	$categories =Category::where(['parent_id'=>0])->get();
+    	$categories_dropdown = "<option value='0' selected>Kategoriyalar...</option>";
+    	foreach($categories as $cat){
+    		$categories_dropdown .= "<option value='".$cat->id."'>".$cat->name_uz."</option>";
+    		$sub_categories = Category::where(['parent_id'=>$cat->id])->get();
+    		foreach($sub_categories as $sub_cat){
+    			$categories_dropdown.= "<option value='".$sub_cat->id."'>&nbsp;--------&nbsp;".$sub_cat->name_uz."</option>";
+                $sub_cat = Category::where(['parent_id'=>$sub_cat->id])->get();
+                foreach($sub_cat as $sub_cat){
+                    $categories_dropdown.= "<option value='".$sub_cat->id."'>&nbsp;-------------------&nbsp;".$sub_cat->name_uz."</option>";
+                }
+    		}
+    	}
+        //Categories drop down ends 
+
+        return view('category.edit',compact('category','categories_dropdown'));
+    }
+
+    public function update(Request $request)
+    {
+        $data = $request->validate([
+            'name_uz' => ['required', 'string', 'max:255'],
+        ]);
+
+        $category = Category::find($data->category->id);
+
+        // Update user data
+        $category->update(array_filter($data));
+
+        return redirect()->route('category.index')->with('error','Kategory O`zgartirildi');
+    }
+
+    public function destroy($id)
+    {
+        $category= Category::find($id);
+        $category->delete();
+        return back()->with('error','Kategory O`chirildi');
     }
 }

@@ -25,7 +25,8 @@ Route::get('category', [App\Http\Controllers\CategoryController::class, 'index']
 Route::get('category/create', [App\Http\Controllers\CategoryController::class, 'create'])->name('category.create');
 Route::get('category/edit/{id}', [App\Http\Controllers\CategoryController::class, 'edit'])->name('category.edit');
 Route::post('category/store', [App\Http\Controllers\CategoryController::class, 'store'])->name('category.store');
-Route::post('category/update', [App\Http\Controllers\CategoryController::class, 'update'])->name('category.update');
+Route::patch('category/update/{id}', [App\Http\Controllers\CategoryController::class, 'update'])->name('category.update');
+Route::delete('category/destroy{id}', [App\Http\Controllers\CategoryController::class, 'destroy'])->name('category.destroy');
 
 
 Auth::routes();
