@@ -77,6 +77,7 @@ class CategoryController extends Controller
         //Categories drop down ends
 
         return view('category.edit',compact('category','categories_dropdown'));
+    	
     }
 
     public function update(Request $request, $id)

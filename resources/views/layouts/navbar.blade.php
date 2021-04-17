@@ -22,6 +22,12 @@
                 <i class="fa fa-list"></i> <span class="text-uppercase">Yangiliklar</span>
             </a>
         </li>
+
+        <li>
+            <a href="{{ route('question.index') }}">
+                <i class="fa fa-question"></i> <span class="text-uppercase">Savollar</span>
+            </a>
+        </li>
     </ul>
 
 </div>

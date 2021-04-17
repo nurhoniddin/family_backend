@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\QuestionController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -37,6 +38,6 @@ Route::post('posts/store', [App\Http\Controllers\PostController::class, 'store']
 Route::patch('posts/update/{id}', [App\Http\Controllers\PostController::class, 'update'])->name('posts.update');
 Route::delete('posts/destroy/{id}', [App\Http\Controllers\PostController::class, 'destroy'])->name('posts.destroy');
 Route::get('posts/show/{id}', [App\Http\Controllers\PostController::class, 'show'])->name('posts.show');
-
+Route::resource('question',QuestionController::class);
 Auth::routes();
 
