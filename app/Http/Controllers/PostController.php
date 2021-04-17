@@ -51,8 +51,8 @@ class PostController extends Controller
         $imagePath = request('image')->store('post_images', 'public');
         $data->image = $imagePath;
 
-        $imagePath = request('file')->store('post_files', 'public');
-        $data->file = $imagePath;
+        $filePath = request('file')->store('post_files', 'public');
+        $data->file = $filePath;
 
         $data->save();
 
