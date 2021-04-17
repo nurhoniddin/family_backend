@@ -12,10 +12,14 @@
                 <i class="zmdi zmdi-view-dashboard"></i> <span class="text-uppercase">Dashboard</span>
             </a>
         </li>
-
         <li>
             <a href="{{ route('category.index') }}">
                 <i class="fa fa-list"></i> <span class="text-uppercase">Kategoriyalar</span>
+            </a>
+        </li>
+        <li>
+            <a href="{{ route('posts.index') }}">
+                <i class="fa fa-list"></i> <span class="text-uppercase">Yangiliklar</span>
             </a>
         </li>
     </ul>

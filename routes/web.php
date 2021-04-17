@@ -20,7 +20,7 @@ Route::get('/', function () {
 //});
 Route::get('home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-// Route Category  list
+// Route Category  List
 Route::get('category', [App\Http\Controllers\CategoryController::class, 'index'])->name('category.index');
 Route::get('category/create', [App\Http\Controllers\CategoryController::class, 'create'])->name('category.create');
 Route::get('category/edit/{id}', [App\Http\Controllers\CategoryController::class, 'edit'])->name('category.edit');
@@ -29,7 +29,14 @@ Route::patch('category/update/{id}', [App\Http\Controllers\CategoryController::c
 Route::delete('category/destroy/{id}', [App\Http\Controllers\CategoryController::class, 'destroy'])->name('category.destroy');
 Route::get('category/show/{id}', [App\Http\Controllers\CategoryController::class, 'show'])->name('category.show');
 
-
+// Route Posts List
+Route::get('posts', [App\Http\Controllers\PostController::class, 'index'])->name('posts.index');
+Route::get('posts/create', [App\Http\Controllers\PostController::class, 'create'])->name('posts.create');
+Route::get('posts/edit/{id}', [App\Http\Controllers\PostController::class, 'edit'])->name('posts.edit');
+Route::post('posts/store', [App\Http\Controllers\PostController::class, 'store'])->name('posts.store');
+Route::patch('posts/update/{id}', [App\Http\Controllers\PostController::class, 'update'])->name('posts.update');
+Route::delete('posts/destroy/{id}', [App\Http\Controllers\PostController::class, 'destroy'])->name('posts.destroy');
+Route::get('posts/show/{id}', [App\Http\Controllers\PostController::class, 'show'])->name('posts.show');
 
 Auth::routes();
 

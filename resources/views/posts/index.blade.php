@@ -16,29 +16,31 @@
                       <p class="alert alert-danger">{{ Session::get('error') }}</p>
                   @endif
                   <div class="card-body">
-                      <h5 class="card-title"><a class="font-33" href="{{ route('category.create') }}"><i class="fa fa-plus-square"></i></a></h5>
+                      <h5 class="card-title"><a class="font-33" href="{{ route('posts.create') }}"><i class="fa fa-plus-square"></i></a></h5>
                       <div class="table-responsive">
                           <table class="table table-bordered">
                               <thead>
                               <tr>
                                   <th scope="col">#</th>
-                                  <th scope="col">name</th>
-                                  <th scope="col">parent_id</th>
+                                  <th scope="col">title</th>
+                                  <th scope="col">description</th>
+                                  <th scope="col">content</th>
                                   <th width="100px" scope="col">Action</th>
                               </tr>
                               </thead>
                               <tbody>
-                              @foreach($cats as $cat)
+                              @foreach($post as $posts)
                               <tr>
-                                      <th scope="row">{{ $cat->id }}</th>
-                                      <td>{{ $cat->name_uz }}</td>
-                                      <td>{{ $cat->parent_id }}</td>
+                                      <th scope="row">{{ $posts->id }}</th>
+                                      <td>{{ $posts->title_uz }}</td>
+                                      <td>{{ $posts->description_uz }}</td>
+                                      <td>{{ $posts->content_uz }}</td>
                                       <td>
-                                      <form action="{{ route('category.destroy',$cat->id) }}" method="post">
+                                      <form action="{{ route('posts.destroy',$posts->id) }}" method="post">
                                                     @csrf
                                                     @method('DELETE')
-                                          <a href="{{ route('category.edit',$cat->id) }}"><i class="fa fa-edit"></i></a>
-                                          <a href="{{ route('category.show',$cat->id)  }}"><i class="fa fa-eye"></i></a>
+                                          <a href="{{ route('posts.edit',$posts->id) }}"><i class="fa fa-edit"></i></a>
+                                          <a href="{{ route('posts.show',$posts->id)  }}"><i class="fa fa-eye"></i></a>
                                           <button  type="submit" class="bg-transparent"><i class="fa fa-trash text-white"></i></button>
                                           </form>
                                       </td>
@@ -50,6 +52,8 @@
                   </div>
               </div>
           </div>
+
+
       </div>
     <!-- End container-fluid-->
 
