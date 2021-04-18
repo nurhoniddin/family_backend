@@ -1,62 +1,132 @@
 @extends('layouts.app')
 
 @section('content')
+    <style>
+        .card-counter{
+            box-shadow: 2px 2px 10px #DADADA;
+            margin: 5px;
+            padding: 20px 10px;
+            background-color: #fff;
+            height: 100px;
+            border-radius: 5px;
+            transition: .3s linear all;
+        }
 
+        .card-counter:hover{
+            box-shadow: 4px 4px 20px #DADADA;
+            transition: .3s linear all;
+        }
+
+        .card-counter.primary{
+            background-color: #007bff;
+            color: #FFF;
+        }
+
+        .card-counter.danger{
+            background-color: #ef5350;
+            color: #FFF;
+        }
+
+        .card-counter.success{
+            background-color: #66bb6a;
+            color: #FFF;
+        }
+
+        .card-counter.info{
+            background-color: #26c6da;
+            color: #FFF;
+        }
+
+        .card-counter i{
+            font-size: 5em;
+            opacity: 0.2;
+        }
+
+        .card-counter .count-numbers{
+            position: absolute;
+            right: 35px;
+            top: 20px;
+            font-size: 32px;
+            display: block;
+        }
+
+        .card-counter .count-name{
+            position: absolute;
+            right: 35px;
+            top: 65px;
+            font-style: italic;
+            text-transform: capitalize;
+            opacity: 0.5;
+            display: block;
+            font-size: 18px;
+        }
+    </style>
     <div class="clearfix"></div>
 
     <div class="content-wrapper">
-        <div class="container-fluid">   
-            <!--Start Dashboard Content-->
-            <div class="card mt-3">
-                <div class="card-content">
-                    <div class="row row-group m-0">
-                        <div class="col-12 col-lg-6 col-xl-3 border-light">
-                            <div class="card-body">
-                                <h5 class="text-white mb-0">9526 <span class="float-right"><i class="fa fa-shopping-cart"></i></span></h5>
-                                <div class="progress my-3" style="height:3px;">
-                                    <div class="progress-bar" style="width:55%"></div>
-                                </div>
-                                <p class="mb-0 text-white small-font">Total Orders <span class="float-right">+4.2% <i class="zmdi zmdi-long-arrow-up"></i></span></p>
-                            </div>
+        <div class="container-fluid">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="card-counter primary">
+                            <i class="fa fa-list"></i>
+                            <span class="count-numbers">
+                                @php
+                                    echo \App\Models\Category::all()->count();
+                                @endphp
+                            </span>
+                            <span class="count-name">Kategoriya</span>
                         </div>
-                        <div class="col-12 col-lg-6 col-xl-3 border-light">
-                            <div class="card-body">
-                                <h5 class="text-white mb-0">8323 <span class="float-right"><i class="fa fa-usd"></i></span></h5>
-                                <div class="progress my-3" style="height:3px;">
-                                    <div class="progress-bar" style="width:55%"></div>
-                                </div>
-                                <p class="mb-0 text-white small-font">Total Revenue <span class="float-right">+1.2% <i class="zmdi zmdi-long-arrow-up"></i></span></p>
-                            </div>
+                    </div>
+
+                    <div class="col-md-3">
+                        <div class="card-counter danger">
+                            <i class="fa fa-newspaper-o"></i>
+                            <span class="count-numbers">
+                                @php
+                                    echo \App\Models\Post::all()->count();
+                                @endphp
+                            </span>
+                            <span class="count-name">Yangiliklar</span>
                         </div>
-                        <div class="col-12 col-lg-6 col-xl-3 border-light">
-                            <div class="card-body">
-                                <h5 class="text-white mb-0">6200 <span class="float-right"><i class="fa fa-eye"></i></span></h5>
-                                <div class="progress my-3" style="height:3px;">
-                                    <div class="progress-bar" style="width:55%"></div>
-                                </div>
-                                <p class="mb-0 text-white small-font">Visitors <span class="float-right">+5.2% <i class="zmdi zmdi-long-arrow-up"></i></span></p>
-                            </div>
+                    </div>
+
+                    <div class="col-md-3">
+                        <div class="card-counter success">
+                            <i class="fa fa-question"></i>
+                            <span class="count-numbers">
+                                 @php
+                                     echo \App\Models\Question::all()->count();
+                                 @endphp
+                            </span>
+                            <span class="count-name">Savollar</span>
                         </div>
-                        <div class="col-12 col-lg-6 col-xl-3 border-light">
-                            <div class="card-body">
-                                <h5 class="text-white mb-0">5630 <span class="float-right"><i class="fa fa-envira"></i></span></h5>
-                                <div class="progress my-3" style="height:3px;">
-                                    <div class="progress-bar" style="width:55%"></div>
-                                </div>
-                                <p class="mb-0 text-white small-font">Messages <span class="float-right">+2.2% <i class="zmdi zmdi-long-arrow-up"></i></span></p>
-                            </div>
+                    </div>
+
+                    <div class="col-md-3">
+                        <div class="card-counter info">
+                            <i class="fa fa-envelope"></i>
+                            <span class="count-numbers">
+                                 @php
+                                     echo \App\Models\Contact::all()->count();
+                                 @endphp
+                            </span>
+                            <span class="count-name">Murojatlar</span>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!--End Dashboard Content-->
-            <!--start overlay-->
-            <div class="overlay toggle-menu"></div>
-            <!--end overlay-->
-
         </div>
-        <!-- End container-fluid-->
+    </div>
+
+    <!--End Dashboard Content-->
+    <!--start overlay-->
+    <div class="overlay toggle-menu"></div>
+    <!--end overlay-->
+
+    </div>
+    <!-- End container-fluid-->
 
     </div><!--End content-wrapper-->
     <!--Start Back To Top Button-->

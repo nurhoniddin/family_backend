@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ContactController;
 use App\Http\Controllers\QuestionController;
 use Illuminate\Support\Facades\Route;
 
@@ -39,5 +40,6 @@ Route::patch('posts/update/{id}', [App\Http\Controllers\PostController::class, '
 Route::delete('posts/destroy/{id}', [App\Http\Controllers\PostController::class, 'destroy'])->name('posts.destroy');
 Route::get('posts/show/{id}', [App\Http\Controllers\PostController::class, 'show'])->name('posts.show');
 Route::resource('question',QuestionController::class);
+Route::resource('contact',ContactController::class);
 Auth::routes();
 

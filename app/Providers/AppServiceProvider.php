@@ -2,6 +2,8 @@
 
 namespace App\Providers;
 
+use App\Models\Question;
+use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -23,6 +25,9 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        View::composer('contact.create', function($questions)
+        {
+             $questions->with('questions',Question::all());
+        });
     }
 }

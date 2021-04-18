@@ -12,4 +12,7 @@ class Question extends Model
         'question_uz',
         'question_ru',
     ];
+    public function contact(){
+        return $this->hasMany(Contact::class,'question_id');
+    }
 }

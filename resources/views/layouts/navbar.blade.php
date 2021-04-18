@@ -14,18 +14,40 @@
         </li>
         <li>
             <a href="{{ route('category.index') }}">
-                <i class="fa fa-list"></i> <span class="text-uppercase">Kategoriyalar</span>
+                <i class="fa fa-list"></i> <span class="text-uppercase">Kategoriyalar -
+                     @php
+                         echo \App\Models\Category::all()->count();
+                     @endphp
+                </span>
             </a>
         </li>
         <li>
             <a href="{{ route('posts.index') }}">
-                <i class="fa fa-list"></i> <span class="text-uppercase">Yangiliklar</span>
+                <i class="fa fa-list"></i> <span class="text-uppercase">Yangiliklar -
+                     @php
+                         echo \App\Models\Post::all()->count();
+                     @endphp
+                </span>
             </a>
         </li>
 
         <li>
             <a href="{{ route('question.index') }}">
-                <i class="fa fa-question"></i> <span class="text-uppercase">Savollar</span>
+                <i class="fa fa-question"></i> <span class="text-uppercase">Savollar -
+                     @php
+                         echo \App\Models\Question::all()->count();
+                     @endphp
+                </span>
+            </a>
+        </li>
+
+        <li>
+            <a href="{{ route('contact.index') }}">
+                <i class="fa fa-envelope "></i> <span class="text-uppercase">Murojatlar -
+                     @php
+                         echo \App\Models\Contact::all()->count();
+                     @endphp
+                </span>
             </a>
         </li>
     </ul>
@@ -48,13 +70,16 @@
 
             <li class="nav-item">
                 <a class="nav-link dropdown-toggle dropdown-toggle-nocaret" data-toggle="dropdown" href="#">
-                    <span class="user-profile"><img src="https://via.placeholder.com/110x110" class="img-circle" alt="user avatar"></span>
+                    <span class="user-profile"><img src="https://via.placeholder.com/110x110" class="img-circle"
+                                                    alt="user avatar"></span>
                 </a>
                 <ul class="dropdown-menu dropdown-menu-right">
                     <li class="dropdown-item user-details">
                         <a href="javaScript:void();">
                             <div class="media">
-                                <div class="avatar"><img class="align-self-start mr-3" src="https://via.placeholder.com/110x110" alt="user avatar"></div>
+                                <div class="avatar"><img class="align-self-start mr-3"
+                                                         src="https://via.placeholder.com/110x110" alt="user avatar">
+                                </div>
                                 <div class="media-body">
                                     <h6 class="mt-2 user-title">{{ Auth::user()->name ?? null }}</h6>
                                     <p class="user-subtitle">{{ Auth::user()->email ?? null }}</p>
