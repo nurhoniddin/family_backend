@@ -5,7 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Post;
 use App\Models\Category;
+use App\Models\Tag;
 use Illuminate\Support\Facades\Storage;
+use DB;
 
 class PostController extends Controller
 {
@@ -36,8 +38,33 @@ class PostController extends Controller
         return view('posts.create',compact('categories_dropdown'));
     }
 
+    public function edit($id)
+    {
+        $post= Post::findOrFail($id);
+
+        //Categories drop down start
+        $categories = Category::where(['parent_id' => 0])->get();
+        $categories_dropdown = "<option value='0' selected disabled>Kategoriyalar...</option>";
+        foreach ($categories as $cat) {
+            $categories_dropdown .= "<option value='" . $cat->id . "'disabled>" . $cat->name_uz . "</option>";
+            $sub_categories = Category::where(['parent_id' => $cat->id])->get();
+            foreach ($sub_categories as $sub_cat) {
+                $categories_dropdown .= "<option value='" . $sub_cat->id . "'>&nbsp;--------&nbsp;" . $sub_cat->name_uz . "</option>";
+                $sub_cat = Category::where(['parent_id' => $sub_cat->id])->get();
+                foreach ($sub_cat as $sub_cat) {
+                    $categories_dropdown .= "<option value='" . $sub_cat->id . "'>&nbsp;-------------------&nbsp;" . $sub_cat->name_uz . "</option>";
+                }
+            }
+        }
+        //Categories drop down ends
+
+        return view('posts.edit',compact('post','categories_dropdown'));
+        
+    }
+
     public function store(Request $request)
     {
+        
         $data = new Post();
 
         $data->title_uz = $request->input('title_uz');
@@ -48,13 +75,33 @@ class PostController extends Controller
         $data->content_ru = $request->input('content_ru');
         $data->category_id = $request->input('category_id');
 
+        if ($request->hasFile('image')) {
         $imagePath = request('image')->store('post_images', 'public');
         $data->image = $imagePath;
+        }
 
+        if ($request->hasFile('file')) {
         $filePath = request('file')->store('post_files', 'public');
         $data->file = $filePath;
+        }
 
         $data->save();
+
+        $post_id = DB::getPdo()->lastInsertId();
+
+
+        $data = $request->all();
+
+        $tag = [];
+        for($i= 0; $i < count($data['name_uz']); $i++){
+            $tag[] = [
+                'post_id' => $post_id,
+                'name_uz' => $data['name_uz'][$i],
+                'name_ru' => $data['name_ru'][$i],
+               
+            ];
+        }
+        DB::table('tags')->insert($tag);
 
         return redirect()->route('posts.index')
             ->with('success', 'Yangilik yaratildi');

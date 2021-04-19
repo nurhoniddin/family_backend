@@ -32,6 +32,7 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+
 </head>
 <body class="bg-theme bg-theme1">
 <div id="wrapper">
@@ -76,11 +77,22 @@
     </div>
     <!--end color switcher-->
 
+
+
 <!-- Bootstrap core JavaScript-->
 <script src="{{ asset('assets/js/jquery.min.js') }}"></script>
 <script src="{{ asset('assets/js/popper.min.js') }}"></script>
 <script src="{{ asset('assets/js/bootstrap.min.js') }}"></script>
-
+<script type="text/javascript">
+var i = 0;
+$("#add-btn").click(function(){
+++i;
+$("#dynamicAddRemove").append('<tr><td><input type="text" id="name_uz['+i+']" name="name_uz[]" placeholder="Name uz" class="form-control" /></td><td><input type="text" id="name_ru['+i+']" name="name_ru[]" placeholder="Name ru" class="form-control" /></td><td><button type="button" class="btn btn-danger remove-tr">Remove</button></td></tr>');
+});
+$(document).on('click', '.remove-tr', function(){  
+$(this).parents('tr').remove();
+});  
+</script>
 <!-- simplebar js -->
 <script src="{{ asset('assets/plugins/simplebar/js/simplebar.js') }}"></script>
 <!-- sidebar-menu js -->
