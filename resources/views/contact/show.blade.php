@@ -18,7 +18,9 @@
                             <hr>
                             <strong style="text-transform: uppercase">Sana</strong>
                             <hr>
-                            {{ $contact->created_at->format('Y-d-M-H:m') }}
+                            @if($contact->created_at)
+                                <td>{{ $contact->created_at->format('Y-M-d') }}</td>
+                            @endif
                             <hr>
                             <strong style="text-transform: uppercase">Telifon</strong>
                             <hr>

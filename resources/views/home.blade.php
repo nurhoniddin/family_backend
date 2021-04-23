@@ -114,6 +114,18 @@
                             <span class="count-name">Murojatlar</span>
                         </div>
                     </div>
+
+                    <div class="col-md-3">
+                        <div class="card-counter danger">
+                            <i class="fa fa-tags"></i>
+                            <span class="count-numbers">
+                                 @php
+                                     echo \App\Models\Tag::all()->count();
+                                 @endphp
+                            </span>
+                            <span class="count-name">Teglar</span>
+                        </div>
+                    </div>
                 </div>
             </div>
 

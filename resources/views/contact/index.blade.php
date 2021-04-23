@@ -54,7 +54,9 @@
                                             <td>{{ $contact->subject }}</td>
                                             <td>{!! Str::words($contact->message,5) !!}</td>
                                             <td>{{ $contact->question->question_uz }}</td>
+                                            @if($contact->created_at)
                                             <td>{{ $contact->created_at->format('Y-M-d') }}</td>
+                                            @endif
                                             <td>
                                                 <form action="{{ route('contact.destroy',$contact->id) }}" method="post">
                                                     @csrf
