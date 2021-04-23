@@ -22,8 +22,9 @@
                             @endif
                                 <div class="row mt-3">
                                     <div class="col-lg-12">
-                                                <form action="{{ route('posts.store') }}" method="post" enctype="multipart/form-data">
+                                                <form action="{{ route('posts.update',$post->id) }}" method="post" enctype="multipart/form-data">
                                                     @csrf
+                                                    @method('PATCH')
                                                     <div class="input-group pb-3">
                                                         <select name="category_id" class="custom-select text-uppercase" id="inputGroupSelect01">
                                                             <!-- <option value="0" select>Kategoriyalar...</option> -->
@@ -38,18 +39,6 @@
                                                         <label for="name_uz"> File</label>
                                                         <input type="file" name="file" class="form-control" id="name_uz" >
                                                     </div>
-                                                    <table class="table table-bordered" id="dynamicAddRemove">  
-                                                    <tr>
-                                                    <th>Nomi uz</th>
-                                                    <th>Nomi ru</th>
-                                                    <th>Action</th>
-                                                    </tr>
-                                                    <tr>  
-                                                    <td><input type="text" name="name_uz[]" placeholder="nomi uz" class="form-control" /></td>  
-                                                    <td><input type="text" name="name_ru[]" placeholder="nomi ru" class="form-control" /></td>  
-                                                    <td><button type="button" name="add" id="add-btn" class="btn btn-success">Add More</button></td>  
-                                                    </tr>  
-                                                    </table> 
                                                     <br>
                                                     <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
                                                         <li class="nav-item" role="presentation">
@@ -72,26 +61,26 @@
                                                             </div>
                                                             <div class="form-group">
                                                                 <label for="name_uz"> Qisqacha</label>
-                                                                <input type="text" name="description_uz" class="form-control" id="name_uz" >
+                                                                <input type="text" value="{{ $post->description_uz}}" name="description_uz" class="form-control" id="name_uz" >
                                                             </div>
                                                             <div class="form-group">
                                                                 <label for="name_uz"> To'liq</label>
-                                                                <textarea class="form-control" id="editor1" name="content_uz"></textarea>
+                                                                <textarea class="form-control" id="editor1" name="content_uz">{{ $post->content_uz}}</textarea>
                                                             </div>
                                                         </div>
                                                         <div class="tab-pane fade" id="pills-profile" role="tabpanel"
                                                              aria-labelledby="pills-contact-tab">
                                                              <div class="form-group">
                                                                 <label for="name_uz">Nomi</label>
-                                                                <input type="text" name="title_ru" class="form-control" id="name_uz" >
+                                                                <input type="text" value="{{ $post->title_ru}}" name="title_ru" class="form-control" id="name_uz" >
                                                             </div>
                                                             <div class="form-group">
                                                                 <label for="name_uz"> Qisqacha</label>
-                                                                <input type="text" name="description_ru" class="form-control" id="name_uz" >
+                                                                <input type="text" value="{{ $post->description_ru}}" name="description_ru" class="form-control" id="name_uz" >
                                                             </div>
                                                             <div class="form-group">
                                                                 <label for="name_uz"> To'liq</label>
-                                                                <textarea class="form-control" id="editor2" name="content_ru"></textarea>
+                                                                <textarea class="form-control" id="editor2" name="content_ru">{{ $post->content_ru }}</textarea>
                                                             </div>
                                                         </div>
                                                     </div>

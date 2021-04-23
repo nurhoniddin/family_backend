@@ -39,7 +39,14 @@ Route::post('posts/store', [App\Http\Controllers\PostController::class, 'store']
 Route::patch('posts/update/{id}', [App\Http\Controllers\PostController::class, 'update'])->name('posts.update');
 Route::delete('posts/destroy/{id}', [App\Http\Controllers\PostController::class, 'destroy'])->name('posts.destroy');
 Route::get('posts/show/{id}', [App\Http\Controllers\PostController::class, 'show'])->name('posts.show');
+
+// Route Tags List
+Route::get('tags', [App\Http\Controllers\TagController::class, 'index'])->name('tags.index');
+Route::delete('tags/destroy/{id}', [App\Http\Controllers\TagController::class, 'destroy'])->name('tags.destroy');
+
+// Route Question List
 Route::resource('question',QuestionController::class);
 Route::resource('contact',ContactController::class);
+
 Auth::routes();
 

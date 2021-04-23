@@ -22,30 +22,27 @@
                               <thead>
                               <tr>
                                   <th scope="col">#</th>
-                                  <th scope="col">title</th>
-                                  <th scope="col">description</th>
-                                  <th scope="col">content</th>
-                                  <th scope="col">image</th>
+                                  <th scope="col">yangilik nomi</th>
+                                  <th scope="col">name uz</th>
+                                  <th scope="col">name ru</th>
                                   <th width="100px" scope="col">Action</th>
                               </tr>
                               </thead>
                               <tbody>
-                              @foreach($post as $posts)
+                              @foreach($tag as $tags)
                               <tr>
-                                      <th scope="row">{{ $posts->id }}</th>
-                                      <td>{{ $posts->title_uz }}</td>
-                                      <td>{{ $posts->description_uz }}</td>
-                                      <td>{{ $posts->content_uz }}</td>
+                                      <th scope="row">{{ $tags->id }}</th>
+                                  @if(!empty($tags->post->title_uz))
+                                      <td>{{ $tags->post->title_uz }}</td>
+                                  @else
+                                      <td></td>
+                                  @endif
+                                      <td>{{ $tags->name_uz }}</td>
+                                      <td>{{ $tags->name_ru }}</td>
                                       <td>
-                                          <img src="{{ Storage::url($posts->image) }}" style="width: 150px">
-
-                                      </td>
-                                      <td>
-                                      <form action="{{ route('posts.destroy',$posts->id) }}" method="post">
+                                      <form action="{{ route('tags.destroy',$tags->id) }}" method="post">
                                                     @csrf
                                                     @method('DELETE')
-                                          <a href="{{ route('posts.edit',$posts->id) }}"><i class="fa fa-edit"></i></a>
-                                          <a href="{{ route('posts.show',$posts->id)  }}"><i class="fa fa-eye"></i></a>
                                           <button  type="submit" class="bg-transparent"><i class="fa fa-trash text-white"></i></button>
                                           </form>
                                       </td>
@@ -56,7 +53,7 @@
                       </div>
                   </div>
                       <nav aria-label="Page navigation example">
-                          {{$post->links("pagination::bootstrap-4")}}
+                          {{$tag->links("pagination::bootstrap-4")}}
                       </nav>
               </div>
           </div>

@@ -13,4 +13,9 @@ class Tag extends Model
     'name_ru',
     'post_id'
     ];
+
+    public function post()
+    {
+        return $this->belongsTo('App\Models\Post');
+    }
 }

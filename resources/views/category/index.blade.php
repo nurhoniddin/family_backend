@@ -48,6 +48,9 @@
                           </table>
                       </div>
                   </div>
+                      <nav aria-label="Page navigation example">
+                          {{$cats->links("pagination::bootstrap-4")}}
+                      </nav>
               </div>
           </div>
       </div>

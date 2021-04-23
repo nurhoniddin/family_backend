@@ -30,6 +30,15 @@
                 </span>
             </a>
         </li>
+        <li>
+            <a href="{{ route('tags.index') }}">
+                <i class="fa fa-list"></i> <span class="text-uppercase">Teglar -
+                     @php
+                         echo \App\Models\Tag::all()->count();
+                     @endphp
+                </span>
+            </a>
+        </li>
 
         <li>
             <a href="{{ route('question.index') }}">

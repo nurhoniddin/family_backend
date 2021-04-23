@@ -7,24 +7,29 @@
         <div class="container-fluid">
 
             <div class="row mt-3">
-                <h5 class="card-title"><a class="" href="{{ route('category.index') }}"><i class="fa fa-arrow-left"></i></a>
+                <h5 class="card-title"><a class="" href="{{ route('posts.index') }}"><i class="fa fa-arrow-left"></i></a>
                 </h5>
 
                 <div class="col-lg-12">
                     <div class="row ">
                         <div class="col-md-6">
-                            <strong style="text-transform: uppercase">Kategoriya UZ</strong>
+                            <strong style="text-transform: uppercase">Nomi  </strong>
                             <hr>
-                            {{ $cat->name_uz }}
+                            {{ $post->title_uz }}
                             <hr>
-                            <strong style="text-transform: uppercase">Parent_id</strong>
+                            <strong style="text-transform: uppercase">Qisqacha  </strong>
                             <hr>
-                            {{ $cat->parent_id }}
+                            {{ $post->description_uz }}
+                            <hr>
+                            <strong style="text-transform: uppercase">To'liq  </strong>
+                            <hr>
+                            {!! $post->content_uz !!}
+                            <hr>
                         </div>
                         <div class="col-md-6">
-                            <strong style="text-transform: uppercase">Kategoriya ru</strong>
+                            <strong style="text-transform: uppercase">Image</strong>
                             <hr>
-                            {{ $cat->name_ru }}
+                            <img src="{{ Storage::url($post->image) }}" style="width: 300px">
                         </div>
                     </div>
                 </div>

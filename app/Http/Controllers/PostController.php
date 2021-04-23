@@ -59,12 +59,44 @@ class PostController extends Controller
         //Categories drop down ends
 
         return view('posts.edit',compact('post','categories_dropdown'));
-        
+
+    }
+
+    public function update(Request $request, $id)
+    {
+        $data = Post::findOrFail($id);
+
+        $data->title_uz = $request->title_uz;
+        $data->title_ru = $request->title_ru;
+        $data->description_uz = $request->description_uz;
+        $data->description_ru = $request->description_ru;
+        $data->content_uz = $request->content_uz;
+        $data->content_ru = $request->content_ru;
+        $data->category_id = $request->category_id;
+
+        if ($request->hasFile('image')) {
+        $imagePath = request('image')->store('post_images', 'public');
+        $data->image = $imagePath;
+        }
+
+        if ($request->hasFile('file')) {
+        $filePath = request('file')->store('post_files', 'public');
+        $data->file = $filePath;
+        }
+
+        $data->save();
+
+        return redirect()->route('posts.index')->with('success','Yangilik O`zgartirildi');
+    }
+
+    public function show($id){
+        $post = Post::findOrFail($id);
+        return view('posts.show',compact('post'));
     }
 
     public function store(Request $request)
     {
-        
+
         $data = new Post();
 
         $data->title_uz = $request->input('title_uz');
@@ -89,7 +121,6 @@ class PostController extends Controller
 
         $post_id = DB::getPdo()->lastInsertId();
 
-
         $data = $request->all();
 
         $tag = [];
@@ -98,7 +129,7 @@ class PostController extends Controller
                 'post_id' => $post_id,
                 'name_uz' => $data['name_uz'][$i],
                 'name_ru' => $data['name_ru'][$i],
-               
+
             ];
         }
         DB::table('tags')->insert($tag);
