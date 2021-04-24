@@ -23,7 +23,7 @@
         </li>
         <li>
             <a href="{{ route('posts.index') }}">
-                <i class="fa fa-list"></i> <span class="text-uppercase">Yangiliklar -
+                <i class="fa fa-newspaper-o"></i> <span class="text-uppercase">Yangiliklar -
                      @php
                          echo \App\Models\Post::all()->count();
                      @endphp
@@ -32,7 +32,7 @@
         </li>
         <li>
             <a href="{{ route('tags.index') }}">
-                <i class="fa fa-list"></i> <span class="text-uppercase">Teglar -
+                <i class="fa fa-tags"></i> <span class="text-uppercase">Teglar -
                      @php
                          echo \App\Models\Tag::all()->count();
                      @endphp
