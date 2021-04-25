@@ -87,11 +87,11 @@
 var i = 0;
 $("#add-btn").click(function(){
 ++i;
-$("#dynamicAddRemove").append('<tr><td><input type="text" id="name_uz['+i+']" name="name_uz[]" placeholder="Name uz" class="form-control" /></td><td><input type="text" id="name_ru['+i+']" name="name_ru[]" placeholder="Name ru" class="form-control" /></td><td><button type="button" class="btn btn-danger remove-tr">Remove</button></td></tr>');
+$("#dynamicAddRemove").append('<tr><td><input type="text" id="name_uz['+i+']" name="name_uz[]" placeholder="tag uz" class="form-control" /></td><td><input type="text" id="name_ru['+i+']" name="name_ru[]" placeholder="tag ru" class="form-control" /></td><td><button type="button" class="btn btn-danger remove-tr">Remove</button></td></tr>');
 });
-$(document).on('click', '.remove-tr', function(){  
+$(document).on('click', '.remove-tr', function(){
 $(this).parents('tr').remove();
-});  
+});
 </script>
 <!-- simplebar js -->
 <script src="{{ asset('assets/plugins/simplebar/js/simplebar.js') }}"></script>

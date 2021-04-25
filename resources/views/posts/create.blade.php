@@ -38,16 +38,16 @@
                                                         <label for="name_uz"> File</label>
                                                         <input type="file" name="file" class="form-control" id="name_uz" >
                                                     </div>
-                                                    <label for="name_uz"> Teg</label>
+                                                    <label for="name_uz"> Teglar</label>
                                                     <table class="table table-bordered" id="dynamicAddRemove">
                                                     <tr>
-                                                    <th>Nomi uz</th>
-                                                    <th>Nomi ru</th>
+                                                    <th>Tag uz</th>
+                                                    <th>Tag ru</th>
                                                     <th>Action</th>
                                                     </tr>
                                                     <tr>
-                                                    <td><input type="text" name="name_uz[]" placeholder="nomi uz" class="form-control" /></td>
-                                                    <td><input type="text" name="name_ru[]" placeholder="nomi ru" class="form-control" /></td>
+                                                    <td><input type="text" name="name_uz[]" placeholder="tag uz" class="form-control" /></td>
+                                                    <td><input type="text" name="name_ru[]" placeholder="tag ru" class="form-control" /></td>
                                                     <td><button type="button" name="add" id="add-btn" class="btn btn-success">Add More</button></td>
                                                     </tr>
                                                     </table>
