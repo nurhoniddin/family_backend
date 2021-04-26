@@ -42,7 +42,7 @@ class ContactController extends Controller
 //            'email' => 'required|email',
             'phone' => 'required',
             'subject' => 'required',
-            'question_id' => 'required',
+            'callback' => 'required',
             'message' => 'required',
         ]);
         $data = new Contact();
@@ -51,6 +51,7 @@ class ContactController extends Controller
         $data->phone = $request->input('phone');
         $data->subject = $request->input('subject');
         $data->question_id = $request->input('question_id');
+        $data->callback = $request->input('callback');
         $data->message = $request->input('message');
 //        dd($data);
         $data->save();

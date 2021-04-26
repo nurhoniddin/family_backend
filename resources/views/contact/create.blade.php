@@ -31,6 +31,10 @@
                 @endforeach
             </select>
         </div>
+        <label for="callback">Qo'ng'iroq Qilish Vaqti</label>
+        <textarea class="form-control" name="callback" id="callback" cols="30" rows="10" placeholder="Misol: 15:00 Dushanba 21 Aprel">
+
+        </textarea>
         <label for="message">Message</label>
         <textarea class="form-control" name="message" id="message" cols="30" rows="10">
 

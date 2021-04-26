@@ -41,6 +41,7 @@
                                         <th scope="col">Mavzu</th>
                                         <th scope="col">Habar</th>
                                         <th scope="col">Savol</th>
+                                        <th scope="col">Qo'ng'iroq qilish vaqti</th>
                                         <th scope="col">Kelgan sana</th>
                                         <th width="100px" scope="col">Action</th>
                                     </tr>
@@ -53,7 +54,10 @@
                                             <td>{{ $contact->phone }}</td>
                                             <td>{{ $contact->subject }}</td>
                                             <td>{!! Str::words($contact->message,5) !!}</td>
-                                            <td>{{ $contact->question->question_uz }}</td>
+                                            <td>{{ $contact->question->question_uz ?? 'Yoq'}}</td>
+                                            @if($contact->callback)
+                                                <td>{{ $contact->callback }}</td>
+                                            @endif
                                             @if($contact->created_at)
                                             <td>{{ $contact->created_at->format('Y-M-d') }}</td>
                                             @endif
