@@ -20,8 +20,7 @@ class CreateContactsTable extends Migration
             $table->string('phone',30);
             $table->text('subject');
             $table->text('message');
-            $table->foreignId('question_id')->nullable()->constrained('questions');
-            $table->string('callback',50);
+            $table->text('call_back');
             $table->timestamps();
         });
     }

@@ -31,11 +31,8 @@
                             <hr>
                             {{ $contact->email }}
                             <hr>
-                            <strong style="text-transform: uppercase">Savol</strong>
-                            <button class="btn btn-primary">{{ $contact->question->question_uz ?? 'Yoq'  }}</button>
-                            <hr>
                             <strong style="text-transform: uppercase">Qo'ng'iroq qilish vaqti</strong>
-                            <button class="btn btn-primary">{{ $contact->callback }}</button>
+                            <button class="btn btn-primary"><i class="fa fa-clock-o"></i>{{ $contact->call_back }}</button>
                             <hr>
                            <strong style="text-transform: uppercase">mavzu</strong>
                             <hr>

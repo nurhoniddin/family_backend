@@ -22,23 +22,14 @@
         <input type="text" name="phone" class="form-control">
         <label for="subject">Mavzu</label>
         <input type="text" name="subject" class="form-control">
-        <div class="form-group">
-            <label for="question">Savol</label>
-            <select class="form-control" name="question_id">
-                @foreach($questions as $que)
-                    <option value="{{ $que->id }}">
-                        {{$que->question_uz}}</option>
-                @endforeach
-            </select>
-        </div>
-        <label for="callback">Qo'ng'iroq Qilish Vaqti</label>
-        <textarea class="form-control" name="callback" id="callback" cols="30" rows="10" placeholder="Misol: 15:00 Dushanba 21 Aprel">
-
-        </textarea>
         <label for="message">Message</label>
         <textarea class="form-control" name="message" id="message" cols="30" rows="10">
 
         </textarea>
+        <div class="form-group">
+            <label for="call_back">Vaqt</label>
+            <input class="form-control" type="text" name="call_back" id="call_back">
+        </div>
     </div>
     <button type="submit" class="btn btn-primary">Submit</button>
 </form>

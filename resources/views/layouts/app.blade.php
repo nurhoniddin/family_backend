@@ -34,7 +34,7 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 
 </head>
-<body class="bg-theme bg-theme1">
+<body class="bg-theme bg-theme1" style="font-family: Noto">
 <div id="wrapper">
     @include('layouts.navbar')
     @yield('content')
