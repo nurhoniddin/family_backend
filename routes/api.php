@@ -18,10 +18,10 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-<<<<<<< Updated upstream
+
 Route::get('contact', [\App\Http\Controllers\Api\ContactController::class,'index']);
 Route::post('contact/store',[\App\Http\Controllers\Api\ContactController::class,'store']);
-=======
+
 // Route Category All
 Route::get('/category', [\App\Http\Controllers\Api\CategoryController::class,'index'])->name('category');
 
@@ -41,4 +41,4 @@ Route::post('/tagsearch', [\App\Http\Controllers\Api\TagController::class,'tagse
 
 // Route Comment
 Route::post('/comment', [\App\Http\Controllers\Api\CommentController::class,'store'])->name('comment');
->>>>>>> Stashed changes
+

@@ -18,8 +18,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('auth.login');
 });
-//Route::group(['middleware' => 'auth'],function (){
-//});
+Route::group(['middleware' => 'auth'],function (){
+
 Route::get('home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 // Route Category  List
@@ -55,5 +55,6 @@ Route::delete('comment/destroy/{id}', [App\Http\Controllers\CommentController::c
 Route::resource('question',QuestionController::class);
 Route::resource('contact',ContactController::class);
 
+});
 Auth::routes();
 
