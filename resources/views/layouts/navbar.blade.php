@@ -69,7 +69,7 @@
                 </span>
             </a>
         </li>
-        <li>
+        <li class="{{ request()->routeIs('comment.index') ? 'active' : '' }}">
             <a href="{{ route('comment.index') }}">
                 <i class="fa fa-list"></i> <span class="text-uppercase">Komment -
                      <span class="badge badge-primary">
