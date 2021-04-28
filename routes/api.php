@@ -42,5 +42,7 @@ Route::post('/tagsearch', [\App\Http\Controllers\Api\TagController::class,'tagse
 // Route Comment
 Route::post('/comment', [\App\Http\Controllers\Api\CommentController::class,'store'])->name('comment');
 
+//site settings
+Route::get('/setting', [\App\Http\Controllers\Api\SiteController::class,'index']);
 
 
