@@ -9,12 +9,12 @@
         <li class="sidebar-header"></li>
         <li>
             <a href="{{ route('home') }}">
-                <i class="zmdi zmdi-view-dashboard"></i> <span class="text-uppercase">Dashboard</span>
+                <i class="fa fa-home"></i> <span class="text-uppercase">Bosh sahifa</span>
             </a>
         </li>
         <li class="{{ request()->routeIs('category.index') ? 'active' : '' }}">
             <a  href="{{ route('category.index') }}">
-                <i class="fa fa-list"></i> <span class="text-uppercase">Kategoriyalar -
+                <i class="fa fa-list"></i> <span class="text-uppercase">Kategoriyalar
                     <span class="badge badge-primary">
                             @php
                                 echo \App\Models\Category::all()->count();
@@ -25,7 +25,7 @@
         </li>
         <li class="{{ request()->routeIs('posts.index') ? 'active' : '' }}">
             <a href="{{ route('posts.index') }}">
-                <i class="fa fa-newspaper-o"></i> <span class="text-uppercase">Yangiliklar -
+                <i class="fa fa-newspaper-o"></i> <span class="text-uppercase">Yangiliklar
                     <span class="badge badge-primary">
                       @php
                           echo \App\Models\Post::all()->count();
@@ -36,7 +36,7 @@
         </li>
         <li class="{{ request()->routeIs('tags.index') ? 'active' : '' }}">
             <a href="{{ route('tags.index') }}">
-                <i class="fa fa-tags"></i> <span class="text-uppercase">Teglar -
+                <i class="fa fa-tags"></i> <span class="text-uppercase">Teglar
               <span class="badge badge-primary">
                       @php
                           echo \App\Models\Tag::all()->count();
@@ -60,7 +60,7 @@
 
         <li class="{{ request()->routeIs('contact.index') ? 'active' : '' }}">
             <a href="{{ route('contact.index') }}">
-                <i class="fa fa-envelope "></i> <span class="text-uppercase">Murojatlar -
+                <i class="fa fa-envelope "></i> <span class="text-uppercase">Murojatlar
                     <span class="badge badge-primary">
                            @php
                                echo \App\Models\Contact::all()->count();
@@ -71,7 +71,7 @@
         </li>
         <li class="{{ request()->routeIs('comment.index') ? 'active' : '' }}">
             <a href="{{ route('comment.index') }}">
-                <i class="fa fa-list"></i> <span class="text-uppercase">Komment -
+                <i class="fa fa-list"></i> <span class="text-uppercase">Komment
                      <span class="badge badge-primary">
                       @php
                           echo \App\Models\Comment::all()->count();
@@ -79,6 +79,18 @@
               </span>
                 </span>
             </a>
+        </li>
+
+        <li class="{{ request()->routeIs('setting.index') ? 'active' : '' }}">
+        <a href="{{ route('setting.index') }}">
+            <i class="fa fa-gears"></i> <span class="text-uppercase">Sayt Malumotlari
+                     <span class="badge badge-primary">
+                      @php
+                          echo \App\Models\Setting::all()->count();
+                      @endphp
+              </span>
+                </span>
+        </a>
         </li>
     </ul>
 

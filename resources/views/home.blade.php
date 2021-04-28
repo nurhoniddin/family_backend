@@ -126,6 +126,18 @@
                             <span class="count-name">Teglar</span>
                         </div>
                     </div>
+
+                    <div class="col-md-3">
+                        <div class="card-counter info">
+                            <i class="fa fa-gears"></i>
+                            <span class="count-numbers">
+                                 @php
+                                     echo \App\Models\Setting::all()->count();
+                                 @endphp
+                            </span>
+                            <span class="count-name">Sayt Malumotlari</span>
+                        </div>
+                    </div>
                 </div>
             </div>
 
