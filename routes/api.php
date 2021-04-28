@@ -18,5 +18,27 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
+<<<<<<< Updated upstream
 Route::get('contact', [\App\Http\Controllers\Api\ContactController::class,'index']);
 Route::post('contact/store',[\App\Http\Controllers\Api\ContactController::class,'store']);
+=======
+// Route Category All
+Route::get('/category', [\App\Http\Controllers\Api\CategoryController::class,'index'])->name('category');
+
+// Route Posts All
+Route::get('/posts', [\App\Http\Controllers\Api\PostController::class,'index'])->name('posts');
+// Route Category id Post
+Route::get('/posts/{category_id}', [\App\Http\Controllers\Api\PostController::class,'posts'])->name('posts');
+// Route Post details
+Route::get('/post/{id}', [\App\Http\Controllers\Api\PostController::class,'details'])->name('post');
+// Route Post search
+Route::post('/search', [\App\Http\Controllers\Api\PostController::class,'search'])->name('search');
+
+// Route Tags All
+Route::get('/tags', [\App\Http\Controllers\Api\TagController::class,'index'])->name('tags');
+// Route Tag search
+Route::post('/tagsearch', [\App\Http\Controllers\Api\TagController::class,'tagsearch'])->name('tagsearch');
+
+// Route Comment
+Route::post('/comment', [\App\Http\Controllers\Api\CommentController::class,'store'])->name('comment');
+>>>>>>> Stashed changes

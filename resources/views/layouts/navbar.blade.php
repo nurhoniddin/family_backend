@@ -69,6 +69,15 @@
                 </span>
             </a>
         </li>
+        <li>
+            <a href="{{ route('comment.index') }}">
+                <i class="fa fa-list"></i> <span class="text-uppercase">Komment -
+                     @php
+                         echo \App\Models\Comment::all()->count();
+                     @endphp
+                </span>
+            </a>
+        </li>
     </ul>
 
 </div>

@@ -20,4 +20,12 @@ class Post extends Model
         'views',
         'category_id'
     ];
+
+    public function tag(){
+        return $this->hasMany(Tag::class);
+    }
+
+    public function comment(){
+        return $this->hasMany(Comment::class);
+    }
 }

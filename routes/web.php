@@ -44,6 +44,13 @@ Route::get('posts/show/{id}', [App\Http\Controllers\PostController::class, 'show
 Route::get('tags', [App\Http\Controllers\TagController::class, 'index'])->name('tags.index');
 Route::delete('tags/destroy/{id}', [App\Http\Controllers\TagController::class, 'destroy'])->name('tags.destroy');
 
+// Route Comment List
+Route::get('comment', [App\Http\Controllers\CommentController::class, 'index'])->name('comment.index');
+// Route Comment List
+Route::get('comment/update/{id}', [App\Http\Controllers\CommentController::class, 'update'])->name('comment.update');
+// Route  Comment Delete
+Route::delete('comment/destroy/{id}', [App\Http\Controllers\CommentController::class, 'destroy'])->name('comment.destroy');
+
 // Route Question List
 Route::resource('question',QuestionController::class);
 Route::resource('contact',ContactController::class);
