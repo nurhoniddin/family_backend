@@ -21,10 +21,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::get('contact', [\App\Http\Controllers\Api\ContactController::class,'index']);
 Route::post('contact/store',[\App\Http\Controllers\Api\ContactController::class,'store']);
-<<<<<<< HEAD
 
-=======
->>>>>>> a1a0e922ebb6ec535bd246f256bbe7ec296d6f99
 // Route Category All
 Route::get('/category', [\App\Http\Controllers\Api\CategoryController::class,'index'])->name('category');
 
@@ -44,7 +41,6 @@ Route::post('/tagsearch', [\App\Http\Controllers\Api\TagController::class,'tagse
 
 // Route Comment
 Route::post('/comment', [\App\Http\Controllers\Api\CommentController::class,'store'])->name('comment');
-<<<<<<< HEAD
 
-=======
->>>>>>> a1a0e922ebb6ec535bd246f256bbe7ec296d6f99
+
+
