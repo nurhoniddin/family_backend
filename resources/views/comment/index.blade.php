@@ -16,7 +16,7 @@
                       <p class="alert alert-danger">{{ Session::get('error') }}</p>
                   @endif
                   <div class="card-body">
-                      <h5 class="card-title"><a class="font-33" href="{{ route('posts.create') }}"><i class="fa fa-plus-square"></i></a></h5>
+{{--                      <h5 class="card-title"><a class="font-33" href="{{ route('posts.create') }}"><i class="fa fa-plus-square"></i></a></h5>--}}
                       <div class="table-responsive">
                           <table class="table table-bordered">
                               <thead>
