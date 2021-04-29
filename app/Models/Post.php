@@ -26,6 +26,6 @@ class Post extends Model
     }
 
     public function comment(){
-        return $this->hasMany(Comment::class);
+        return Comment::where(['status'=>1])->get();
     }
 }

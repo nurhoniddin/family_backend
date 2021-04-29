@@ -42,7 +42,7 @@
                                       <td><a href="{{ route('comment.update',$comments->id) }}" class="btn btn-success">Active</a></td>
                                   @endif
                                   @if($comments->status == 0)
-                                      <td><a href="{{ route('comment.update',$comments->id) }}" class="btn btn-danger">Active</a></td>
+                                      <td><a href="{{ route('comment.update',$comments->id) }}" class="btn btn-danger">InActive</a></td>
                                   @endif
                                       <td>
                                       <form action="{{ route('comment.destroy',$comments->id) }}" method="post">
