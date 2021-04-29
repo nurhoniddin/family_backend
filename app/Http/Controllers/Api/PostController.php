@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Models\Comment;
 use App\Models\Post;
 use App\Models\Category;
 use Illuminate\Http\Request;
@@ -33,8 +34,9 @@ class PostController extends Controller
 
     public function details($id)
     {
-        $details = Post::with('tag')->with('comment')->where('id',$id)->first();
-        return response()->json(compact('details'));
+        $details = Post::with('tag')->where('id',$id)->first();
+        $comment = Comment::where('post_id',$id)->where('status',1)->get();
+        return response()->json(compact('details','comment'));
     }
 
     public function search(Request $request)
