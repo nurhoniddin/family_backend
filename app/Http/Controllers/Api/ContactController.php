@@ -11,10 +11,6 @@ use Illuminate\Http\Request;
 
 class ContactController extends Controller
 {
-    public function index(){
-        $contacts = Contact::all();
-        return response()->json(compact('contacts'));
-    }
 
     public function store(Request $request){
         $data = new Contact();
