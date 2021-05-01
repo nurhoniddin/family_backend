@@ -44,6 +44,7 @@
                                       <form action="{{ route('posts.destroy',$posts->id) }}" method="post">
                                                     @csrf
                                                     @method('DELETE')
+                                          <a href="{{ route('posts.downloadFile',$posts->id) }}"><i class="fa fa-download"></i></a>
                                           <a href="{{ route('posts.edit',$posts->id) }}"><i class="fa fa-edit"></i></a>
                                           <a href="{{ route('posts.show',$posts->id)  }}"><i class="fa fa-eye"></i></a>
                                           <button  type="submit" class="bg-transparent"><i class="fa fa-trash text-white"></i></button>

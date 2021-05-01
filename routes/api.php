@@ -33,6 +33,8 @@ Route::get('/posts/{category_id}', [\App\Http\Controllers\Api\PostController::cl
 Route::get('/post/{id}', [\App\Http\Controllers\Api\PostController::class,'details'])->name('post');
 // Route Post search
 Route::post('/search', [\App\Http\Controllers\Api\PostController::class,'search'])->name('search');
+// Route Post DownloadFile
+Route::get('/downloadFile/{id}', [\App\Http\Controllers\Api\PostController::class,'downloadFile'])->name('downloadFile');
 
 // Route Tags All
 Route::get('/tags', [\App\Http\Controllers\Api\TagController::class,'index'])->name('tags');

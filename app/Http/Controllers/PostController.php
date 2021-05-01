@@ -11,6 +11,11 @@ use DB;
 
 class PostController extends Controller
 {
+    function downloadFile($id){
+        $post = Post::findOrFail($id);
+        return response()->download(storage_path("app/public/{$post->file}"));
+    }
+
     public function index()
     {
         $post = Post::latest()->paginate(10);
@@ -23,7 +28,7 @@ class PostController extends Controller
         $categories = Category::where(['parent_id' => 0])->get();
         $categories_dropdown = "<option value='0' selected disabled>Kategoriyalar...</option>";
         foreach ($categories as $cat) {
-            $categories_dropdown .= "<option value='" . $cat->id . "'disabled>" . $cat->name_uz . "</option>";
+            $categories_dropdown .= "<option value='" . $cat->id . "'>" . $cat->name_uz . "</option>";
             $sub_categories = Category::where(['parent_id' => $cat->id])->get();
             foreach ($sub_categories as $sub_cat) {
                 $categories_dropdown .= "<option value='" . $sub_cat->id . "'>&nbsp;--------&nbsp;" . $sub_cat->name_uz . "</option>";
@@ -40,13 +45,13 @@ class PostController extends Controller
 
     public function edit($id)
     {
-        $post= Post::findOrFail($id);
+        $post = Post::findOrFail($id);
 
         //Categories drop down start
         $categories = Category::where(['parent_id' => 0])->get();
         $categories_dropdown = "<option value='0' selected disabled>Kategoriyalar...</option>";
         foreach ($categories as $cat) {
-            $categories_dropdown .= "<option value='" . $cat->id . "'disabled>" . $cat->name_uz . "</option>";
+            $categories_dropdown .= "<option value='" . $cat->id . "'>" . $cat->name_uz . "</option>";
             $sub_categories = Category::where(['parent_id' => $cat->id])->get();
             foreach ($sub_categories as $sub_cat) {
                 $categories_dropdown .= "<option value='" . $sub_cat->id . "'>&nbsp;--------&nbsp;" . $sub_cat->name_uz . "</option>";
@@ -80,6 +85,8 @@ class PostController extends Controller
         }
 
         if ($request->hasFile('file')) {
+        Storage::disk('public')->delete($data->file);
+        $data->delete();
         $filePath = request('file')->store('post_files', 'public');
         $data->file = $filePath;
         }

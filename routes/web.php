@@ -31,7 +31,7 @@ Route::group(['middleware' => 'auth'],function () {
     Route::delete('category/destroy/{id}', [App\Http\Controllers\CategoryController::class, 'destroy'])->name('category.destroy');
     Route::get('category/show/{id}', [App\Http\Controllers\CategoryController::class, 'show'])->name('category.show');
 
-// Route Posts List
+    // Route Posts List
     Route::get('posts', [App\Http\Controllers\PostController::class, 'index'])->name('posts.index');
     Route::get('posts/create', [App\Http\Controllers\PostController::class, 'create'])->name('posts.create');
     Route::get('posts/edit/{id}', [App\Http\Controllers\PostController::class, 'edit'])->name('posts.edit');
@@ -39,6 +39,7 @@ Route::group(['middleware' => 'auth'],function () {
     Route::patch('posts/update/{id}', [App\Http\Controllers\PostController::class, 'update'])->name('posts.update');
     Route::delete('posts/destroy/{id}', [App\Http\Controllers\PostController::class, 'destroy'])->name('posts.destroy');
     Route::get('posts/show/{id}', [App\Http\Controllers\PostController::class, 'show'])->name('posts.show');
+    Route::get('posts/download/{id}', [App\Http\Controllers\PostController::class, 'downloadFile'])->name('posts.downloadFile');
 
 // Route Tags List
     Route::get('tags', [App\Http\Controllers\TagController::class, 'index'])->name('tags.index');

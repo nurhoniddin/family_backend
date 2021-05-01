@@ -49,4 +49,9 @@ class PostController extends Controller
 
         return response()->json(compact('search_post'));
     }
+
+    function downloadFile($id){
+        $post = Post::findOrFail($id);
+        return response()->download(storage_path("app/public/{$post->file}"));
+    }
 }
