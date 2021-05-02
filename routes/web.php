@@ -47,8 +47,12 @@ Route::group(['middleware' => 'auth'],function () {
 
 // Route Comment List
     Route::get('comment', [App\Http\Controllers\CommentController::class, 'index'])->name('comment.index');
-// Route Comment List
+// Route Comment Status Update
     Route::get('comment/update/{id}', [App\Http\Controllers\CommentController::class, 'update'])->name('comment.update');
+// Route Comment Edit
+    Route::get('comment/edit/{id}', [App\Http\Controllers\CommentController::class, 'edit'])->name('comment.edit');
+// Route Comment Update
+    Route::patch('comment/comupdate/{id}', [App\Http\Controllers\CommentController::class, 'comupdate'])->name('comment.comupdate');
 // Route  Comment Delete
     Route::delete('comment/destroy/{id}', [App\Http\Controllers\CommentController::class, 'destroy'])->name('comment.destroy');
 

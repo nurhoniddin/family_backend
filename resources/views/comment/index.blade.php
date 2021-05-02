@@ -48,6 +48,7 @@
                                       <form action="{{ route('comment.destroy',$comments->id) }}" method="post">
                                                     @csrf
                                                     @method('DELETE')
+                                          <a href="{{ route('comment.edit',$comments->id) }}"><i class="fa fa-edit"></i></a>
                                           <button  type="submit" class="bg-transparent"><i class="fa fa-trash text-white"></i></button>
                                       </form>
                                       </td>
