@@ -113,7 +113,7 @@
             <li class="nav-item">
                 <a class="nav-link dropdown-toggle dropdown-toggle-nocaret" data-toggle="dropdown" href="#">
                     <span class="user-profile">
-                        <img src="https://via.placeholder.com/110x110" class="img-circle"
+                        <img src="{{ asset('assets/admin.jpg') }}" class="img-circle"
                                                     alt="user avatar"></span>
                 </a>
                 <ul class="dropdown-menu dropdown-menu-right">
@@ -121,10 +121,10 @@
                         <a href="javaScript:void();">
                             <div class="media">
                                 <div class="avatar"><img class="align-self-start mr-3"
-                                                         src="https://via.placeholder.com/110x110" alt="user avatar">
+                                                         src="{{ asset('assets/admin.jpg') }}" alt="user avatar">
                                 </div>
                                 <div class="media-body">
-                                    <h6 class="mt-2 user-title">{{ Auth::user()->name ?? null }}</h6>
+                                    <h6 class="mt-2 user-title">Role: <span class="badge badge-success">{{ Auth::user()->name ?? null }}</span></h6>
                                     <p class="user-subtitle">{{ Auth::user()->email ?? null }}</p>
                                 </div>
                             </div>
@@ -134,7 +134,7 @@
                         <form action="{{ route('logout') }}" method="post">
                             @csrf
                             <button type="submit" class="btn btn-success bg-transparient">
-                                Logout
+                                Chiqish
                             </button>
                         </form>
                     </li>

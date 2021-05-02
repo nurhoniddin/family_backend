@@ -16,7 +16,7 @@
                       <p class="alert alert-danger">{{ Session::get('error') }}</p>
                   @endif
                   <div class="card-body">
-                      <h5 class="card-title"><a class="font-33" href="{{ route('posts.create') }}"><i class="fa fa-plus-square"></i></a></h5>
+                         <h5 class="card-title"><a class="font-33" href="{{ route('posts.create') }}"><i class="fa fa-plus-square"></i></a></h5>
                       <div class="table-responsive">
                           <table class="table table-bordered">
                               <thead>
@@ -25,7 +25,8 @@
                                   <th scope="col">title</th>
                                   <th scope="col">description</th>
                                   <th scope="col">content</th>
-                                  <th scope="col">image</th>
+                                  <th scope="col">image</th>        
+                                   <th scope="col">status</th>  
                                   <th width="100px" scope="col">Action</th>
                               </tr>
                               </thead>
@@ -35,10 +36,20 @@
                                       <th scope="row">{{ $posts->id }}</th>
                                       <td>{{ $posts->title_uz }}</td>
                                       <td>{{ $posts->description_uz }}</td>
-                                      <td>{{ $posts->content_uz }}</td>
+                                      <td>{{ Str::limit($posts->content_uz, 20) }}</td>
                                       <td>
                                           <img src="{{ Storage::url($posts->image) }}" style="width: 150px">
-
+                                      </td>
+                                      <td>
+                                          @if($posts->status == 'active')
+                                          <span class="badge badge-success">
+                                                  {{ $posts->status }}
+                                          </span>
+                                          @else
+                                              <span class="badge badge-danger">
+                                                  {{ $posts->status }}
+                                              </span>
+                                          @endif
                                       </td>
                                       <td>
                                       <form action="{{ route('posts.destroy',$posts->id) }}" method="post">

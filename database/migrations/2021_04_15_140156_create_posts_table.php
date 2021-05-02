@@ -25,6 +25,7 @@ class CreatePostsTable extends Migration
             $table->string('file')->nullable();
             $table->integer('category_id')->nullable();
             $table->integer('views')->default(0);
+            $table->string('status');
             $table->timestamps();
         });
     }

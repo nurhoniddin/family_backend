@@ -85,6 +85,13 @@
                                                         </div>
                                                     </div>
                                                     <div class="form-group">
+                                                        <label for="Status">Status</label>
+                                                        <select class="form-control"  name="status" id="status">
+                                                            <option value="inactive">Not Published</option>
+                                                            <option value="active">Published</option>
+                                                        </select>
+                                                    </div>
+                                                    <div class="form-group">
                                                         <button type="submit" class="btn btn-light px-5"><i class="fa fa-save"></i> Saqlash</button>
                                                     </div>
                                                 </form>
