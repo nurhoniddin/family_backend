@@ -25,8 +25,8 @@
                                   <th scope="col">title</th>
                                   <th scope="col">description</th>
                                   <th scope="col">content</th>
-                                  <th scope="col">image</th>        
-                                   <th scope="col">status</th>  
+                                  <th scope="col">image</th>
+                                   <th scope="col">status</th>
                                   <th width="100px" scope="col">Action</th>
                               </tr>
                               </thead>
@@ -55,7 +55,9 @@
                                       <form action="{{ route('posts.destroy',$posts->id) }}" method="post">
                                                     @csrf
                                                     @method('DELETE')
+                                          @if($posts->file)
                                           <a href="{{ route('posts.downloadFile',$posts->id) }}"><i class="fa fa-download"></i></a>
+                                          @endif
                                           <a href="{{ route('posts.edit',$posts->id) }}"><i class="fa fa-edit"></i></a>
                                           <a href="{{ route('posts.show',$posts->id)  }}"><i class="fa fa-eye"></i></a>
                                           <button  type="submit" class="bg-transparent"><i class="fa fa-trash text-white"></i></button>

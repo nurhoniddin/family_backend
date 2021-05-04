@@ -43,6 +43,8 @@ Route::group(['middleware' => 'auth'],function () {
 
 // Route Tags List
     Route::get('tags', [App\Http\Controllers\TagController::class, 'index'])->name('tags.index');
+    Route::get('tags/edit/{id}', [App\Http\Controllers\TagController::class, 'edit'])->name('tags.edit');
+    Route::patch('tags/update/{id}', [App\Http\Controllers\TagController::class, 'update'])->name('tags.update');
     Route::delete('tags/destroy/{id}', [App\Http\Controllers\TagController::class, 'destroy'])->name('tags.destroy');
 
 // Route Comment List
