@@ -36,7 +36,7 @@
                                       <th scope="row">{{ $posts->id }}</th>
                                       <td>{{ $posts->title_uz }}</td>
                                       <td>{{ $posts->description_uz }}</td>
-                                      <td>{{ Str::limit($posts->content_uz, 20) }}</td>
+                                      <td>{{ Str::limit($posts->content_uz, 40) }}</td>
                                       <td>
                                           <img src="{{ Storage::url($posts->image) }}" style="width: 150px">
                                       </td>

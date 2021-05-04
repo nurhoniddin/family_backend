@@ -100,7 +100,17 @@ return [
     'fallback_locale' => 'en',
 
     /*
-    |--------------------------------------------------------------------------
+    |---------------------------------  $text = "A new contact us query\n"
+		    . "<b>Email Address: </b>\n"
+		    . "$request->email\n"
+		    . "<b>Message: </b>\n"
+		    . $request->message;
+
+	    Telegram::sendMessage([
+		    'chat_id' => env('TELEGRAM_CHANNEL_ID', ''),
+		    'parse_mode' => 'HTML',
+		    'text' => $text
+	    ]);-----------------------------------------
     | Faker Locale
     |--------------------------------------------------------------------------
     |
@@ -165,10 +175,11 @@ return [
         Illuminate\Translation\TranslationServiceProvider::class,
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
+	    Telegram\Bot\Laravel\TelegramServiceProvider::class,
 
-        /*
-         * Package Service Providers...
-         */
+	    /*
+		 * Package Service Providers...
+		 */
 
         /*
          * Application Service Providers...
@@ -231,6 +242,7 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
+	    'Telegram' => Telegram\Bot\Laravel\Facades\Telegram::class,
 
     ],
 

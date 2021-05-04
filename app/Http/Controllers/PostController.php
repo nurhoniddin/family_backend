@@ -8,6 +8,8 @@ use App\Models\Category;
 use App\Models\Tag;
 use Illuminate\Support\Facades\Storage;
 use DB;
+use NotificationChannels\Telegram\TelegramMessage;
+use Telegram\Bot\Laravel\Facades\Telegram;
 
 class PostController extends Controller
 {
@@ -143,7 +145,21 @@ class PostController extends Controller
         }
         DB::table('tags')->insert($tag);
 
-        return redirect()->route('posts.index')
+	    $text = ""
+	    . "$request->title_uz\n"
+	    . "$request->description_uz\n"
+	    . "$request->image\n"
+	    . "$request->content_uz\n";
+
+	    Telegram::sendMessage([
+		    'chat_id' => '@famtestuz',
+		    'text' => $text,
+//		    'photo' => 'https://pbs.twimg.com/media/Es65JJdXcAA4QoO.jpg',
+		    'parse_mode' => 'MARKDOWN'
+	    ]);
+
+
+	    return redirect()->route('posts.index')
             ->with('success', 'Yangilik yaratildi');
     }
 

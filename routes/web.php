@@ -2,7 +2,10 @@
 
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\QuestionController;
+use App\Notifications\PostPublished;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Notification;
+use Telegram\Bot\Laravel\Facades\Telegram;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,13 +18,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+
+
 Route::get('/', function () {
-    return view('auth.login');
+	return view('auth.login');
 });
+
 Route::group(['middleware' => 'auth'],function () {
 
     Route::get('home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
 // Route Category  List
     Route::get('category', [App\Http\Controllers\CategoryController::class, 'index'])->name('category.index');
     Route::get('category/create', [App\Http\Controllers\CategoryController::class, 'create'])->name('category.create');
@@ -40,6 +45,7 @@ Route::group(['middleware' => 'auth'],function () {
     Route::delete('posts/destroy/{id}', [App\Http\Controllers\PostController::class, 'destroy'])->name('posts.destroy');
     Route::get('posts/show/{id}', [App\Http\Controllers\PostController::class, 'show'])->name('posts.show');
     Route::get('posts/download/{id}', [App\Http\Controllers\PostController::class, 'downloadFile'])->name('posts.downloadFile');
+//    Route::get('toTelegram/{post}',[\App\Http\Controllers\PostController::class,'toTelegram']);
 
 // Route Tags List
     Route::get('tags', [App\Http\Controllers\TagController::class, 'index'])->name('tags.index');
@@ -67,5 +73,7 @@ Route::group(['middleware' => 'auth'],function () {
     Route::get('setting/edit/{id}', [\App\Http\Controllers\SiteController::class, 'edit'])->name('setting.edit');
     Route::patch('setting/update/{id}', [\App\Http\Controllers\SiteController::class, 'update'])->name('setting.update');
 });
+//Notification::route('telegram', '-1001359496542')
+//	->notify(new PostPublished);
 Auth::routes();
 
