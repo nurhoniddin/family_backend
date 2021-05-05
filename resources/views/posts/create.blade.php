@@ -15,14 +15,16 @@
                                 <div class="alert alert-danger">
                                     <ul>
                                         @foreach ($errors->all() as $error)
-                                            {!! $error !!}
+                                            <li class="text-capitalize" style="font-size: 21px; list-style: none">
+                                                {!! $error !!}
+                                            </li>
                                         @endforeach
                                     </ul>
                                 </div>
                             @endif
                                 <div class="row mt-3">
                                     <div class="col-lg-12">
-                                                <form action="{{ route('posts.store') }}" method="post" enctype="multipart/form-data">
+                                                <form action="{{ route('posts.store') }}" method="post" enctype="multipart/form-data" id="form">
                                                     @csrf
                                                     <div class="input-group pb-3">
                                                         <select name="category_id" class="custom-select text-uppercase" id="inputGroupSelect01" required>
@@ -48,7 +50,7 @@
                                                     <tr>
                                                     <td><input type="text" name="name_uz[]" placeholder="tag uz" class="form-control" /></td>
                                                     <td><input type="text" name="name_ru[]" placeholder="tag ru" class="form-control" /></td>
-                                                    <td><button type="button" name="add" id="add-btn" class="btn btn-success">Add More</button></td>
+                                                    <td><button type="button" name="add" id="add-btn" class="btn btn-success"><i class="fa fa-plus"></i></button></td>
                                                     </tr>
                                                     </table>
                                                     <br>
@@ -69,11 +71,11 @@
                                                              role="tabpanel" aria-labelledby="pills-home-tab">
                                                             <div class="form-group">
                                                                 <label for="name_uz">Nomi</label>
-                                                                <input type="text" name="title_uz" class="form-control" id="name_uz" >
+                                                                <input type="text" name="title_uz" maxlength="50" class="form-control" id="name_uz" >
                                                             </div>
                                                             <div class="form-group">
-                                                                <label for="name_uz"> Qisqacha</label>
-                                                                <input type="text" name="description_uz" class="form-control" id="name_uz" >
+                                                                <label for="description_uz">Matn O'zbekcha</label>
+                                                                <input type="text" name="description_uz" class="form-control" maxlength="120"  id="description_uz" >
                                                             </div>
                                                             <div class="form-group">
                                                                 <label for="name_uz"> To'liq</label>
@@ -84,11 +86,11 @@
                                                              aria-labelledby="pills-contact-tab">
                                                              <div class="form-group">
                                                                 <label for="name_uz">Nomi</label>
-                                                                <input type="text" name="title_ru" class="form-control" id="name_uz" >
+                                                                <input type="text" name="title_ru" maxlength="50" class="form-control" id="name_uz" >
                                                             </div>
                                                             <div class="form-group">
-                                                                <label for="name_uz"> Qisqacha</label>
-                                                                <input type="text" name="description_ru" class="form-control" id="name_uz" >
+                                                                <label for="description_ru">Matn Ruscha</label>
+                                                                <input type="text" name="description_ru" maxlength="120" class="form-control" id="description_ru" >
                                                             </div>
                                                             <div class="form-group">
                                                                 <label for="name_uz"> To'liq</label>
@@ -104,7 +106,7 @@
                                                         </div>
                                                     </div>
                                                     <div class="form-group">
-                                                        <button type="submit" class="btn btn-light px-5"><i class="fa fa-save"></i> Saqlash</button>
+                                                        <button type="submit" class="btn btn-primary" id="btn">saqlash</button>
                                                     </div>
                                                 </form>
                                             </div>
@@ -121,6 +123,7 @@
             <!-- End container-fluid-->
 
         </div><!--End content-wrapper-->
+    <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
 
         <script src="{{ asset('ckeditor/ckeditor.js') }}"></script>
     <script>
