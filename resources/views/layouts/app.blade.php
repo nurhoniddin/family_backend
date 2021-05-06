@@ -29,10 +29,8 @@
     <link href="{{ asset('assets/css/sidebar-menu.css') }}" rel="stylesheet"/>
     <!-- Custom Style-->
     <link href="{{ asset('assets/css/app-style.css') }}" rel="stylesheet"/>
-
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <script async src="https://telegram.org/js/telegram-widget.js?14" data-telegram-share-url="http://127.0.0.1:8000/posts/show/136"></script>
 </head>
 <body class="bg-theme bg-theme1" style="font-family: Noto">
 <div id="wrapper">
