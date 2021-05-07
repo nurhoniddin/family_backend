@@ -82,6 +82,10 @@ class PostController extends Controller
         $data->content_uz = $request->content_uz;
         $data->content_ru = $request->content_ru;
         $data->category_id = $request->category_id;
+	    $data->keywords_uz = $request->keywords_uz;
+	    $data->keywords_ru = $request->keywords_ru;
+	    $data->meta_description_uz = $request->meta_description_uz;
+	    $data->meta_description_ru = $request->meta_description_ru;
         $data->status = $request->input('status');
 
         if ($request->hasFile('image')) {
@@ -122,6 +126,10 @@ class PostController extends Controller
         $data->content_uz = $request->input('content_uz');
         $data->content_ru = $request->input('content_ru');
         $data->category_id = $request->input('category_id');
+	    $data->keywords_uz = $request->keywords_uz;
+	    $data->keywords_ru = $request->keywords_ru;
+	    $data->meta_description_uz = $request->meta_description_uz;
+	    $data->meta_description_ru = $request->meta_description_ru;
 	    $data->status = $request->input('status');
 
         if ($request->hasFile('image')) {

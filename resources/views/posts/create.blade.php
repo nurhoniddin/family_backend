@@ -1,11 +1,9 @@
 @extends('layouts.app')
 
 @section('content')
-
     <div class="clearfix"></div>
     <div class="content-wrapper">
         <div class="container-fluid">
-
             <div class="row mt-3">
                 <div class="col-lg-12">
                     <div class="card">
@@ -81,6 +79,14 @@
                                                                 <label for="name_uz"> To'liq</label>
                                                                 <textarea class="form-control" id="editor1" name="content_uz"></textarea>
                                                             </div>
+                                                            <div class="form-group">
+                                                                <label for="description_uz">Kalit So'zlar</label>
+                                                                <input type="text" name="keywords_uz" class="form-control"   id="description_uz" >
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label for="meta_description_uz">Meta Matn</label>
+                                                                <input type="text" name="meta_description_uz" class="form-control"   id="meta_description_uz" >
+                                                            </div>
                                                         </div>
                                                         <div class="tab-pane fade" id="pills-profile" role="tabpanel"
                                                              aria-labelledby="pills-contact-tab">
@@ -96,12 +102,20 @@
                                                                 <label for="name_uz"> To'liq</label>
                                                                 <textarea class="form-control" id="editor2" name="content_ru"></textarea>
                                                             </div>
+                                                            <div class="form-group">
+                                                                <label for="keywords_ru">Kalit So'zlar RU</label>
+                                                                <input type="text" name="keywords_ru" class="form-control"   id="keywords_ru" >
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label for="meta_description_ru">Meta Matn RU</label>
+                                                                <input type="text" name="meta_description_ru" class="form-control"   id="meta_description_ru" >
+                                                            </div>
                                                         </div>
                                                         <div class="form-group">
                                                             <label for="Status">Status</label>
                                                             <select class="form-control"  name="status" id="status">
-                                                                <option value="inactive">Not Published</option>
-                                                                <option value="active">Published</option>
+                                                                <option value="inactive">Inactive</option>
+                                                                <option value="active">Active</option>
                                                             </select>
                                                         </div>
                                                     </div>
@@ -117,14 +131,9 @@
                         </div>
                     </div>
                 </div>
-
-
             </div>
             <!-- End container-fluid-->
-
         </div><!--End content-wrapper-->
-    <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
-
         <script src="{{ asset('ckeditor/ckeditor.js') }}"></script>
     <script>
         CKEDITOR.replace( 'editor1' );

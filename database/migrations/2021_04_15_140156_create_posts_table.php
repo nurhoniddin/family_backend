@@ -22,6 +22,10 @@ class CreatePostsTable extends Migration
             $table->text('content_uz')->nullable();
             $table->text('content_ru')->nullable();
             $table->string('image')->nullable();
+            $table->string('keywords_uz')->nullable();
+            $table->string('keywords_ru')->nullable();
+            $table->string('meta_description_uz')->nullable();
+            $table->string('meta_description_ru')->nullable();
             $table->string('file')->nullable();
             $table->integer('category_id')->nullable();
             $table->integer('views')->default(0);

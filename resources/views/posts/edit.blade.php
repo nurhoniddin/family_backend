@@ -67,6 +67,14 @@
                                                                 <label for="name_uz"> To'liq</label>
                                                                 <textarea class="form-control" id="editor1" name="content_uz">{{ $post->content_uz}}</textarea>
                                                             </div>
+                                                            <div class="form-group">
+                                                                <label for="keywords_ru">Kalit So'zlar UZ</label>
+                                                                <input type="text" name="keywords_uz" class="form-control" value="{{ $post->keywords_uz }}"  id="keywords_ru" >
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label for="meta_description_ru">Meta Matn Uz</label>
+                                                                <input type="text" name="meta_description_uz" class="form-control" value="{{ $post->meta_description_uz }}"  id="meta_description_ru" >
+                                                            </div>
                                                         </div>
                                                         <div class="tab-pane fade" id="pills-profile" role="tabpanel"
                                                              aria-labelledby="pills-contact-tab">
@@ -81,6 +89,14 @@
                                                             <div class="form-group">
                                                                 <label for="name_uz"> To'liq</label>
                                                                 <textarea class="form-control" id="editor2" name="content_ru">{{ $post->content_ru }}</textarea>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label for="keywords_ru">Kalit So'zlar RU</label>
+                                                                <input type="text" name="keywords_ru" class="form-control" value="{{ $post->keywords_ru }}"  id="keywords_ru" >
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label for="meta_description_ru">Meta Matn RU</label>
+                                                                <input type="text" name="meta_description_ru" class="form-control" value="{{ $post->meta_description_ru }}"  id="meta_description_ru" >
                                                             </div>
                                                         </div>
                                                     </div>

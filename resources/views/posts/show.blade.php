@@ -13,7 +13,7 @@
                 <div class="col-lg-12">
                     <div class="row ">
                         <div class="col-md-6">
-                            <strong style="text-transform: uppercase">Nomi  </strong>
+                            <strong style="text-transform: uppercase">Nomi </strong>
                             <hr>
                             {{ $post->title_uz }}
                             <hr>
@@ -25,6 +25,14 @@
                             <hr>
                             {!! $post->content_uz !!}
                             <hr>
+
+                            <strong style="text-transform: uppercase">Kalit So'zlar Uz  </strong>
+                            <hr>
+                            {{ $post->keywords_uz }}
+                            <hr>
+                            <strong style="text-transform: uppercase">Meta Matn Uz  </strong>
+                            <hr>
+                            {{ $post->meta_description_uz }}
                         </div>
                         <div class="col-md-6">
                             <strong style="text-transform: uppercase">Image</strong>
