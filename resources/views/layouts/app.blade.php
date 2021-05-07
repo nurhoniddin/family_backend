@@ -29,16 +29,16 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
-<body class="bg-theme bg-theme1" style="font-family: Noto">
+<body class="bg-theme bg-theme7" style="font-family: Noto">
 <div id="wrapper">
     @include('layouts.navbar')
     @yield('content')
 </div>
     <!--start color switcher-->
     <div class="right-sidebar">
-        <div class="switcher-icon">
-            <i class="zmdi zmdi-settings zmdi-hc-spin"></i>
-        </div>
+{{--        <div class="switcher-icon">--}}
+{{--            <i class="zmdi zmdi-settings zmdi-hc-spin"></i>--}}
+{{--        </div>--}}
         <div class="right-sidebar-content">
 
             <p class="mb-0">Gaussion Texture</p>
