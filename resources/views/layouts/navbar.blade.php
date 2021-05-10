@@ -80,6 +80,17 @@
                 </span>
             </a>
         </li>
+        <li class="{{ request()->routeIs('page.index') ? 'active' : '' }}">
+            <a href="{{ route('page.index') }}">
+                <i class="fa fa-file-text-o"></i> <span class="text-uppercase">Platforma haqida
+                     <span class="badge badge-primary">
+                      @php
+                          echo \App\Models\Page::all()->count();
+                      @endphp
+              </span>
+                </span>
+            </a>
+        </li>
 
         <li class="{{ request()->routeIs('setting.index') ? 'active' : '' }}">
         <a href="{{ route('setting.index') }}">

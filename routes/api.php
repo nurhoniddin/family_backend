@@ -44,6 +44,9 @@ Route::post('/tagsearch', [\App\Http\Controllers\Api\TagController::class,'tagse
 // Route Comment
 Route::post('/comment', [\App\Http\Controllers\Api\CommentController::class,'store'])->name('comment');
 
+// Route About Platform
+Route::get('/page', [\App\Http\Controllers\Api\PageController::class,'index'])->name('page');
+
 //site settings
 Route::get('/setting', [\App\Http\Controllers\Api\SiteController::class,'index']);
 

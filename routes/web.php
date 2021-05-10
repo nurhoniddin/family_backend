@@ -38,7 +38,7 @@ Route::group(['middleware' => 'auth'],function () {
     Route::delete('category/destroy/{id}', [App\Http\Controllers\CategoryController::class, 'destroy'])->name('category.destroy');
     Route::get('category/show/{id}', [App\Http\Controllers\CategoryController::class, 'show'])->name('category.show');
 
-    // Route Posts List
+// Route Posts List
     Route::get('posts', [App\Http\Controllers\PostController::class, 'index'])->name('posts.index');
     Route::get('posts/create', [App\Http\Controllers\PostController::class, 'create'])->name('posts.create');
     Route::get('posts/edit/{id}', [App\Http\Controllers\PostController::class, 'edit'])->name('posts.edit');
@@ -69,6 +69,14 @@ Route::group(['middleware' => 'auth'],function () {
 // Route Question List
     Route::resource('question', QuestionController::class);
     Route::resource('contact', ContactController::class);
+
+// Route Page List
+    Route::get('page', [App\Http\Controllers\PageController::class, 'index'])->name('page.index');
+    Route::get('page/create', [App\Http\Controllers\PageController::class, 'create'])->name('page.create');
+    Route::get('page/edit/{id}', [App\Http\Controllers\PageController::class, 'edit'])->name('page.edit');
+    Route::post('page/store', [App\Http\Controllers\PageController::class, 'store'])->name('page.store');
+    Route::patch('page/update/{id}', [App\Http\Controllers\PageController::class, 'update'])->name('page.update');
+    Route::delete('page/destroy/{id}', [App\Http\Controllers\PageController::class, 'destroy'])->name('page.destroy');
 
 //Site Setting route
     Route::get('setting', [\App\Http\Controllers\SiteController::class, 'index'])->name('setting.index');

@@ -124,6 +124,8 @@
       <path value="$PROJECT_DIR$/vendor/league/event" />
       <path value="$PROJECT_DIR$/vendor/irazasyed/telegram-bot-sdk" />
       <path value="$PROJECT_DIR$/vendor/laravel-notification-channels/telegram" />
+      <path value="$PROJECT_DIR$/vendor/wulfheart/pretty_routes" />
+      <path value="$PROJECT_DIR$/vendor/spatie/laravel-package-tools" />
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="7.3" />
