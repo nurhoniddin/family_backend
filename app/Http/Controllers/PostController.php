@@ -9,9 +9,12 @@ use App\Models\Tag;
 use Illuminate\Support\Facades\Storage;
 use DB;
 use Illuminate\Support\Str;
-use NotificationChannels\Telegram\TelegramMessage;
 use Telegram\Bot\FileUpload\InputFile;
 use Telegram\Bot\Laravel\Facades\Telegram;
+use \App\Notifications\InvoicePaid;
+use NotificationChannels\Telegram\TelegramChannel;
+use NotificationChannels\Telegram\TelegramMessage;
+use Illuminate\Support\Facades\Notification;
 
 class PostController extends Controller
 {
@@ -102,6 +105,11 @@ class PostController extends Controller
 
         $data->save();
 
+        // Telegram send message channel
+        if ($request->telegram == 1){
+            Notification::send($data, new InvoicePaid());
+        }
+
         return redirect()->route('posts.index')->with('success','Yangilik O`zgartirildi');
     }
 
@@ -144,6 +152,11 @@ class PostController extends Controller
 
         $data->save();
 
+        // Telegram send message channel
+        if ($request->telegram == 1){
+            Notification::send($data, new InvoicePaid());
+        }
+
         $post_id = DB::getPdo()->lastInsertId();
 
         $data = $request->all();
@@ -158,22 +171,6 @@ class PostController extends Controller
             ];
         }
         DB::table('tags')->insert($tag);
-
-//	    $text = ""
-//	    . "$request->title_uz\n"
-//	    . "$request->description_uz\n"
-//	    . "$request->content_uz\n";
-//
-//	    Telegram::sendMessage([
-//		    'chat_id' => '@famtestuz',
-//		    'text' => $text,
-//		    'parse_mode' => 'markdown'
-//	    ]);
-//
-//	    Telegram::sendPhoto([
-//		    'chat_id' => '@famtestuz',
-//		    'photo' => InputFile::createFromContents(file_get_contents($data['image']->getRealPath()), Str::random(10) . '.' . $data['image']->getClientOriginalExtension())
-//	    ]);
 
 	    return redirect()->route('posts.index')
             ->with('success', 'Yangilik yaratildi');

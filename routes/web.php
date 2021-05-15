@@ -8,6 +8,7 @@ use App\Notifications\PostPublished;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Notification;
 use Telegram\Bot\Laravel\Facades\Telegram;
+use NotificationChannels\Telegram\TelegramChannel;
 
 /*
 |--------------------------------------------------------------------------
@@ -86,7 +87,6 @@ Route::group(['middleware' => 'auth'],function () {
     Route::patch('setting/update/{id}', [\App\Http\Controllers\SiteController::class, 'update'])->name('setting.update');
 
 });
-//Notification::route('telegram', '-1001359496542')
-//	->notify(new PostPublished);
+
 Auth::routes();
 

@@ -118,6 +118,13 @@
                                                                 <option value="active">Active</option>
                                                             </select>
                                                         </div>
+                                                        <div class="form-group">
+                                                            <label for="Status">Telegram</label>
+                                                            <select class="form-control"  name="telegram" id="status">
+                                                                <option value="0">No</option>
+                                                                <option value="1">Yes</option>
+                                                            </select>
+                                                        </div>
                                                     </div>
                                                     <div class="form-group">
                                                         <button type="submit" class="btn btn-primary" id="btn">saqlash</button>
