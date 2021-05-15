@@ -21,7 +21,7 @@ class InvoicePaid extends Notification
 
         return TelegramFile::create()
             // Optional recipient user id.
-            ->to(-1001317879334)
+            ->to(-1001359496542)
             // Markdown supported.
             ->content("*$notifiable->title_uz*\n$notifiable->description_uz")
             ->file(public_path("storage/$notifiable->image"), 'photo'); // local photo

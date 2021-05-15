@@ -32,7 +32,7 @@
                                                     </div>
                                                     <div class="form-group">
                                                         <label for="name_uz"> Image</label>
-                                                        <input type="file" name="image" class="form-control" id="name_uz" >
+                                                        <input type="file" name="image" class="form-control" required id="name_uz" >
                                                     </div>
                                                     <div class="form-group">
                                                         <label for="name_uz"> File</label>
@@ -69,11 +69,11 @@
                                                              role="tabpanel" aria-labelledby="pills-home-tab">
                                                             <div class="form-group">
                                                                 <label for="name_uz">Nomi</label>
-                                                                <input type="text" name="title_uz" maxlength="50" class="form-control" id="name_uz" >
+                                                                <input type="text" name="title_uz" maxlength="50" required class="form-control" id="name_uz" >
                                                             </div>
                                                             <div class="form-group">
                                                                 <label for="description_uz">Matn O'zbekcha</label>
-                                                                <input type="text" name="description_uz" class="form-control" maxlength="120"  id="description_uz" >
+                                                                <input type="text" name="description_uz" class="form-control" required maxlength="120"  id="description_uz" >
                                                             </div>
                                                             <div class="form-group">
                                                                 <label for="name_uz"> To'liq</label>
