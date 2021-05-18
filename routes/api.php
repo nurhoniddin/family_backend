@@ -50,4 +50,9 @@ Route::get('/page/{category_id}', [\App\Http\Controllers\Api\PageController::cla
 //site settings
 Route::get('/setting', [\App\Http\Controllers\Api\SiteController::class,'index']);
 
+//logo route
+Route::get('logo',[\App\Http\Controllers\Api\LogoController::class,'index']);
+//statistic route
+Route::get('logo',[\App\Http\Controllers\Api\StatisticController::class,'index']);
+
 

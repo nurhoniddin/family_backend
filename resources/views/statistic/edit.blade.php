@@ -73,7 +73,7 @@
 											     role="tabpanel" aria-labelledby="pills-home-tab">
 												<div class="form-group">
 													<label for="name_uz">Nikohlar-soni</label>
-													<input type="text" value="{{ $statistic->count_marriage_uz }}" class="form-control" id="name_uz" >
+													<input type="text" value="{{ $statistic->count_marriage_uz }}" name="count_marriage_uz" class="form-control" id="name_uz" >
 												</div>
 
 											</div>
@@ -81,7 +81,7 @@
 											     aria-labelledby="pills-contact-tab">
 												<div class="form-group">
 													<label for="name_ru">Nikohlar-soni</label>
-													<input type="text" value="{{ $statistic->count_marriage_ru }}"  class="form-control" id="name_ru" >
+													<input type="text" value="{{ $statistic->count_marriage_ru }}" name="count_marriage_ru"  class="form-control" id="name_ru" >
 												</div>
 
 											</div>
@@ -90,7 +90,7 @@
 
 												<div class="form-group">
 													<label for="count_happy_family_uz">Baxtiyor-oila-soni</label>
-													<input type="text" value="{{ $statistic->count_happy_family_uz }}" class="form-control" id="name_ru" >
+													<input type="text" value="{{ $statistic->count_happy_family_uz }}" name="count_happy_family_uz" class="form-control" id="name_ru" >
 												</div>
 
 											</div>
@@ -98,7 +98,7 @@
 											     aria-labelledby="pills-contact-tab">
 												<div class="form-group">
 													<label for="count_happy_family_ru">Baxtiyor-oila-soni </label>
-													<input type="text"  value="{{ $statistic->count_happy_family_ru }}"  class="form-control" id="name_ru" >
+													<input type="text"  value="{{ $statistic->count_happy_family_ru }}" name="count_happy_family_ru" class="form-control" id="name_ru" >
 												</div>
 											</div>
 
@@ -107,7 +107,7 @@
 
 												<div class="form-group">
 													<label for="count_divorce_uz">ajrimlar-soni-uz</label>
-													<input type="text"  value="{{ $statistic->count_divorce_uz }}" class="form-control" id="name_ru" >
+													<input type="text"  value="{{ $statistic->count_divorce_uz }}" name="count_divorce_uz" class="form-control" id="name_ru" >
 												</div>
 											</div>
 											<div class="tab-pane fade" id="divorces-ru" role="tabpanel"
@@ -115,7 +115,7 @@
 
 												<div class="form-group">
 													<label for="count_divorce_ru">ajrimlar-soni-ru</label>
-													<input type="text" value="{{ $statistic->count_divorce_ru }}" class="form-control" id="name_ru" >
+													<input type="text" value="{{ $statistic->count_divorce_ru }}" name="count_divorce_ru" class="form-control" id="name_ru" >
 												</div>
 											</div>
 											<div class="tab-pane fade" id="divorces-women-uz" role="tabpanel"
@@ -131,7 +131,7 @@
 
 												<div class="form-group">
 													<label for="count_women_ru">30 Yoshgacha bo'lgan Ayollar o'rtasidagi ajrimlar soni-ru</label>
-													<input type="text" value="{{ $statistic->count_women_ru }}" class="form-control" id="name_ru" >
+													<input type="text" value="{{ $statistic->count_women_ru }}" name="count_women_ru" class="form-control" id="name_ru" >
 												</div>
 											</div>
 

@@ -94,7 +94,7 @@ class StatisticController extends Controller
      */
     public function update(Request $request, Statistic $statistic)
     {
-	    
+//	    dd($statistic);
 //		$statistic = new Statistic();
 	    $statistic->count_marriage_uz = $request->input('count_marriage_uz');
 	    $statistic->count_marriage_ru = $request->input('count_marriage_ru');
