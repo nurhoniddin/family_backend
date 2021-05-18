@@ -1,8 +1,10 @@
 <?php
 
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\LogoController;
 use App\Http\Controllers\QuestionController;
 use App\Http\Controllers\RoleController;
+use App\Http\Controllers\StatisticController;
 use App\Http\Controllers\UsersController;
 use App\Notifications\PostPublished;
 use Illuminate\Support\Facades\Route;
@@ -85,7 +87,10 @@ Route::group(['middleware' => 'auth'],function () {
     Route::post('setting/store', [\App\Http\Controllers\SiteController::class, 'store'])->name('setting.store');
     Route::get('setting/edit/{id}', [\App\Http\Controllers\SiteController::class, 'edit'])->name('setting.edit');
     Route::patch('setting/update/{id}', [\App\Http\Controllers\SiteController::class, 'update'])->name('setting.update');
-
+//statistic route
+	Route::resource('statistic',StatisticController::class);
+	//logo route
+	Route::resource('logo',LogoController::class);
 });
 
 Auth::routes();
