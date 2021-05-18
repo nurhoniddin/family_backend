@@ -32,7 +32,7 @@ return [
 
     // config/services.php
     'telegram-bot-api' => [
-        'token' => env('TELEGRAM_BOT_TOKEN', '1876348294:AAEQeuM4pzAbg7elpImdlnIAkuzcu3Tppeg')
+        'token' => env('TELEGRAM_BOT_TOKEN')
     ],
 
 ];

@@ -25,6 +25,13 @@
                                                 <form action="{{ route('page.store') }}" method="post" enctype="multipart/form-data" id="form">
                                                     @csrf
                                                     <br>
+                                                    <div class="input-group pb-3">
+                                                        <select name="category_id" class="custom-select text-uppercase" id="inputGroupSelect01" required>
+                                                            <!-- <option value="0" select>Kategoriyalar...</option> -->
+                                                            <?php echo $categories_dropdown; ?>
+                                                        </select>
+                                                    </div>
+                                                    <br>
                                                     <div class="form-group">
                                                         <label for="name_uz"> Image</label>
                                                         <input type="file" name="image" class="form-control" id="name_uz" >

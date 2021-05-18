@@ -20,6 +20,7 @@ class CreatePagesTable extends Migration
             $table->text('content_uz')->nullable();
             $table->text('content_ru')->nullable();
             $table->string('image')->nullable();
+            $table->integer('category_id')->nullable();
             $table->timestamps();
         });
     }

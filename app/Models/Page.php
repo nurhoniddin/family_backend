@@ -14,6 +14,7 @@ class Page extends Model
         'title_ru',
         'content_uz',
         'content_ru',
+        'category_id',
         'image'
     ];
 }
