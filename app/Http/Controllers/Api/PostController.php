@@ -11,7 +11,7 @@ use Illuminate\Http\Request;
 class PostController extends Controller
 {
     public function index(){
-        $post = Post::orderBy('id','DESC')->get();
+        $post = Post::where('status','active')->get();
         return response()->json(compact('post'));
     }
 
@@ -24,10 +24,10 @@ class PostController extends Controller
             foreach($subCategories as $subcat){
                 $cat_ids[] = $subcat->id;
             }
-            $posts = Post::whereIn('category_id',$cat_ids)->get();
+            $posts = Post::whereIn('category_id',$cat_ids)->with('tag')->with('comment')->where('status','active')->get();
         }else{
             // If url is sub category url
-            $posts = Post::where(['category_id' => $categoryDetails->id])->get();
+            $posts = Post::where(['category_id' => $categoryDetails->id])->with('tag')->with('comment')->where('status','active')->get();
         }
         return response()->json(compact('posts'));
     }
