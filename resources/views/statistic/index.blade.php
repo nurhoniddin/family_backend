@@ -16,7 +16,6 @@
 							<p class="alert alert-danger">{{ Session::get('error') }}</p>
 						@endif
 						<div class="card-body">
-							<h5 class="card-title"><a class="font-33" href="{{ route('statistic.create') }}"><i class="fa fa-plus-square"></i></a></h5>
 							<div class="table-responsive">
 								<table class="table table-bordered">
 									<thead>
@@ -24,8 +23,8 @@
 										<th scope="col">#</th>
 										<th scope="col">Nikohlar soni</th>
 										<th scope="col">Baxtiyor oila</th>
-										<th scope="col">Ajrimlar</th>
-										<th scope="col">30 yashgacha ayollar ajrim</th>
+										<th scope="col">Bola dunyoga keldi</th>
+										<th scope="col">Yil</th>
 										<th width="100px" scope="col">Action</th>
 									</tr>
 									</thead>
@@ -33,17 +32,17 @@
 									@foreach($statistic as $sta)
 										<tr>
 											<th scope="row">{{ $sta->id }}</th>
-											<td>{{ $sta->count_marriage_uz }}</td>
-											<td>{{ $sta->count_happy_family_uz }}</td>
-											<td>{{ $sta->count_divorce_uz }}</td>
-											<td>{{ $sta->count_women_uz }}</td>
+											<td>{{ $sta->count_marriages_uz }}</td>
+											<td>{{ $sta->count_happy_uz }}</td>
+											<td>{{ $sta->count_born_uz }}</td>
+											<td>{{ $sta->title_statistic_uz }}</td>
 											<td>
 												<form action="{{ route('statistic.destroy',$sta->id) }}" method="post">
 													@csrf
 													@method('DELETE')
 													<a href="{{ route('statistic.edit',$sta->id) }}"><i class="fa fa-edit"></i></a>
 													<a href="{{ route('statistic.show',$sta->id)  }}"><i class="fa fa-eye"></i></a>
-													<button  type="submit" class="bg-transparent"><i class="fa fa-trash text-white"></i></button>
+{{--													<button  type="submit" class="bg-transparent"><i class="fa fa-trash text-white"></i></button>--}}
 												</form>
 											</td>
 										</tr>

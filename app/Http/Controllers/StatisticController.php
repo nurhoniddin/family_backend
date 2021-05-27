@@ -37,29 +37,25 @@ class StatisticController extends Controller
      */
     public function store(Request $request)
     {
-		$statistic = new Statistic();
-		$statistic->title_statistic_uz = $request->input('title_statistic_uz');
-    	$statistic->text_statistic_uz = $request->input('text_statistic_uz');
-    	$statistic->title_statistic_ru = $request->input('title_statistic_ru');
-    	$statistic->text_statistic_ru = $request->input('text_statistic_ru');
-    	$statistic->title_marriage_uz = $request->input('title_marriage_uz');
-    	$statistic->count_marriage_uz = $request->input('count_marriage_uz');
-    	$statistic->title_marriage_ru = $request->input('title_marriage_ru');
-    	$statistic->count_marriage_ru = $request->input('count_marriage_ru');
-    	$statistic->title_happy_family_uz = $request->input('title_happy_family_uz');
-    	$statistic->count_happy_family_uz = $request->input('count_happy_family_uz');
-    	$statistic->title_happy_family_ru = $request->input('title_happy_family_ru');
-    	$statistic->count_happy_family_ru = $request->input('count_happy_family_ru');
-    	$statistic->divorce_title_uz = $request->input('count_divorce_uz');
-    	$statistic->count_divorce_uz = $request->input('count_divorce_uz');
-    	$statistic->divorce_title_ru = $request->input('divorce_title_ru');
-    	$statistic->count_divorce_ru = $request->input('count_divorce_ru');
-    	$statistic->title_women_uz = $request->input('title_women_uz');
-    	$statistic->count_women_uz = $request->input('count_women_uz');
-    	$statistic->title_women_ru = $request->input('title_women_ru');
-    	$statistic->count_women_ru = $request->input('count_women_ru');
-    	$statistic->save();
-		return redirect()->route('statistic.index')
+	    $data = new Statistic();
+	    $data->title_statistic_uz = $request->input('title_statistic_uz');
+	    $data->text_statistic_uz = $request->input('text_statistic_uz');
+	    $data->title_statistic_ru = $request->input('title_statistic_ru');
+	    $data->title_marriages_uz = $request->input('title_marriages_uz');
+	    $data->count_marriages_uz = $request->input('count_marriages_uz');
+	    $data->title_marriages_ru = $request->input('title_marriages_ru');
+	    $data->count_marriages_ru = $request->input('count_marriages_ru');
+	    $data->title_born_uz = $request->input('title_born_uz');
+	    $data->count_born_uz = $request->input('count_born_uz');
+	    $data->title_born_ru = $request->input('title_born_ru');
+	    $data->count_born_ru = $request->input('count_born_ru');
+	    $data->title_happy_uz = $request->input('title_happy_uz');
+	    $data->count_happy_uz = $request->input('count_happy_uz');
+	    $data->title_happy_ru = $request->input('title_happy_ru');
+	    $data->count_happy_ru = $request->input('count_happy_ru');
+	    $data->save();
+//	    dd($data);
+	    return redirect()->route('statistic.index')
 			->with('success','Statistika Yaratildi');
     }
 
@@ -94,16 +90,24 @@ class StatisticController extends Controller
      */
     public function update(Request $request, Statistic $statistic)
     {
-//	    dd($statistic);
-//		$statistic = new Statistic();
-	    $statistic->count_marriage_uz = $request->input('count_marriage_uz');
-	    $statistic->count_marriage_ru = $request->input('count_marriage_ru');
-	    $statistic->count_happy_family_uz = $request->input('count_happy_family_uz');
-	    $statistic->count_happy_family_ru = $request->input('count_happy_family_ru');
-	    $statistic->count_divorce_uz = $request->input('count_divorce_uz');
-	    $statistic->count_divorce_ru = $request->input('count_divorce_ru');
-	    $statistic->count_women_uz = $request->input('count_women_uz');
-	    $statistic->count_women_ru = $request->input('count_women_ru');
+	    $statistic->title_statistic_uz = $request->input('title_statistic_uz');
+	    $statistic->text_statistic_uz = $request->input('text_statistic_uz');
+	    $statistic->title_statistic_ru = $request->input('title_statistic_ru');
+	    $statistic->text_statistic_ru = $request->input('text_statistic_ru');
+	    $statistic->title_marriages_uz = $request->input('title_marriages_uz');
+	    $statistic->count_marriages_uz = $request->input('count_marriages_uz');
+	    $statistic->title_marriages_ru = $request->input('title_marriages_ru');
+	    $statistic->count_marriages_ru = $request->input('count_marriages_ru');
+	    $statistic->title_born_uz = $request->input('title_born_uz');
+	    $statistic->count_born_uz = $request->input('count_born_uz');
+	    $statistic->title_born_ru = $request->input('title_born_ru');
+	    $statistic->count_born_ru = $request->input('count_born_ru');
+	    $statistic->title_happy_uz = $request->input('title_happy_uz');
+	    $statistic->count_happy_uz = $request->input('count_happy_uz');
+	    $statistic->title_happy_ru = $request->input('title_happy_ru');
+	    $statistic->count_happy_ru = $request->input('count_happy_ru');
+	    $statistic->save();
+	  
 	    $statistic->save();
 		     return redirect()->route('statistic.index')
 			     ->with('success','Statistika Yangilandi');
